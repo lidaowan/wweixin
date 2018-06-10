@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="wweixin" />
+        <module name="wweixin1" />
       </profile>
     </annotationProcessing>
   </component>

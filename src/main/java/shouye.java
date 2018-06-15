@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/weixin/shouye")
+@WebServlet("/yanzheng/shouye")
 public class shouye extends HttpServlet {
 
     @Override
@@ -23,21 +23,25 @@ public class shouye extends HttpServlet {
      List list1 = getGoodsDao(connection1,"jianli");
       session.setAttribute("jianliList",list1);
 
-        Connection connection2 =  C3p0pool.getConnection();
-        List list2 = getGoodsDao(connection2,"javashipin");
+
+        List list2 = getGoodsDao(connection1,"javashipin");
         session.setAttribute("javashipinList",list2);
 
-        Connection connection3 =  C3p0pool.getConnection();
-        List list3 = getGoodsDao(connection3,"dashujushipin");
+
+        List list3 = getGoodsDao(connection1,"dashujushipin");
         session.setAttribute("dashujushipinList",list3);
 
-        Connection connection4 =  C3p0pool.getConnection();
-        List list4 = getGoodsDao(connection4,"qianduanshipin");
+
+        List list4 = getGoodsDao(connection1,"qianduanshipin");
         session.setAttribute("qianduanshipinList",list4);
 
         req.getRequestDispatcher("/weixin/html/index.jsp").forward(req, resp);
 
-
+        try {
+            connection1.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -70,7 +74,7 @@ public class shouye extends HttpServlet {
         }finally {
             try {
                 ps.close();
-                conn.close();
+
             } catch (SQLException e) {
                 e.printStackTrace();
             }

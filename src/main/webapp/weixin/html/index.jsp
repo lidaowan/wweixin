@@ -14,8 +14,8 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
-    <link href="/li/weixin/css/WeUI/weui.min.css" rel="stylesheet" />
-    <link href="/li/weixin/css/mui/mui.min.css" rel="stylesheet" />
+    <link href="/wweixin/weixin/css/WeUI/weui.min.css" rel="stylesheet" />
+    <link href="/wweixin/weixin/css/mui/mui.min.css" rel="stylesheet" />
     <style>
         body {
             font-family: 'Microsoft YaHei';
@@ -52,38 +52,38 @@
             <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
             <div class="mui-slider-item mui-slider-item-duplicate">
                 <a href="#">
-                    <img src="/li/weixin/images/yuantiao.jpg">
+                    <img src="/wweixin/weixin/images/yuantiao.jpg">
                     <p class="mui-slider-title">静静看这世界</p>
                 </a>
             </div>
             <div class="mui-slider-item">
                 <a href="#">
-                    <img src="/li/weixin/images/shuijiao.jpg">
+                    <img src="/wweixin/weixin/images/shuijiao.jpg">
                     <p class="mui-slider-title">幸福就是可以一起睡觉</p>
                 </a>
             </div>
             <div class="mui-slider-item">
                 <a href="#">
-                    <img src="/li/weixin/images/muwu.jpg">
+                    <img src="/wweixin/weixin/images/muwu.jpg">
                     <p class="mui-slider-title">想要一间这样的木屋，静静的喝咖啡</p>
                 </a>
             </div>
             <div class="mui-slider-item">
                 <a href="#">
-                    <img src="/li/weixin/images/cbd.jpg">
+                    <img src="/wweixin/weixin/images/cbd.jpg">
                     <p class="mui-slider-title">Color of SIP CBD</p>
                 </a>
             </div>
             <div class="mui-slider-item">
                 <a href="#">
-                    <img src="/li/weixin/images/yuantiao.jpg">
+                    <img src="/wweixin/weixin/images/yuantiao.jpg">
                     <p class="mui-slider-title">静静看这世界</p>
                 </a>
             </div>
             <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
             <div class="mui-slider-item mui-slider-item-duplicate">
                 <a href="#">
-                    <img src="/li/weixin/images/shuijiao.jpg">
+                    <img src="/wweixin/weixin/images/shuijiao.jpg">
                     <p class="mui-slider-title">幸福就是可以一起睡觉</p>
                 </a>
             </div>
@@ -116,8 +116,8 @@
     <ul class="mui-table-view mui-grid-view">
 <c:forEach items="${jianliList }" var="goodbean">
         <li class="mui-table-view-cell mui-media mui-col-xs-6">
-            <a href="xiangqing.html?good_id=${goodbean.id}">
-                <img class="mui-media-object" src="/li/weixin/images/${goodbean.image1}">
+            <a href="/wweixin/yanzheng/xiangqing?good_id=${goodbean.id}">
+                <img class="mui-media-object" src="/wweixin/weixin/images/${goodbean.image1}">
                 <div class="mui-media-body">${goodbean.gname}</div>
             </a>
         </li>
@@ -133,8 +133,8 @@
     <ul class="mui-table-view mui-grid-view">
 <c:forEach items="${dashujushipinList }" var="goodbean">
         <li class="mui-table-view-cell mui-media mui-col-xs-6">
-            <a href="xiangqing.html?goodid=${goodbean.id}">
-                <img class="mui-media-object" src="/li/weixin/images/${goodbean.image1}">
+            <a href="/wweixin/yanzheng/xiangqing?good_id=${goodbean.id}">
+                <img class="mui-media-object" src="/wweixin/weixin/images/${goodbean.image1}">
                 <div class="mui-media-body">${goodbean.gname}</div>
             </a>
         </li>
@@ -147,7 +147,7 @@
 <div class="weui-footer">
     <p class="weui-footer__text">没有更多了</p>
 </div>
-<script src="/li/weixin/js/mui.min.js"></script>
+<script src="/wweixin/weixin/js/mui.min.js"></script>
 <script>
     mui.init({
         swipeBack: true //启用右滑关闭功能

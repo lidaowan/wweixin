@@ -30,6 +30,12 @@ public class Zhongkong extends HttpServlet {
         session.setAttribute("openid",jsonObject.getString("openid"));
         resp.sendRedirect(Oauth20Config.SendRedirect);
 
+
+//        HttpSession session = req.getSession();
+//
+//        session.setAttribute("access_token","kkk");
+//       session.setAttribute("openid","11");
+//        resp.sendRedirect(Oauth20Config.SendRedirect);
     }
 
     @Override

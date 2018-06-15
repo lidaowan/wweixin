@@ -5,7 +5,7 @@ public class CAIDAN {
             "     {    \n" +
             "          \"type\":\"view\",\n" +
             "          \"name\":\"真实简历\",\n" +
-            "          \"url\":\"http://lidaowan.com/wweixin/weixin/html/index.jsp\"\n" +
+            "          \"url\":\"http://liyanlai.com/wweixin/yanzheng/shouye\"\n" +
             "      },\n" +
             "     {    \n" +
             "          \"type\":\"view\",\n" +

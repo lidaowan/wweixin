@@ -20,7 +20,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 
-@WebServlet("/weixin/yuzhifu")
+@WebServlet("/yanzheng/yuzhifu")
 public class yuzhifu extends HttpServlet {
     private int shangpinid ;
    private  String spbill_create_ip = null;

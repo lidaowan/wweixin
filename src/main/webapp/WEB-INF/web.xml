@@ -5,6 +5,19 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
 
+  <filter>
+    <filter-name>denglu</filter-name>
+    <filter-class>dengluyanzhengFilter</filter-class>
+  </filter>
+
+
+  <filter-mapping>
+    <filter-name>denglu</filter-name>
+    <url-pattern>/yanzheng/*</url-pattern>
+  </filter-mapping>
+
+
+
   <servlet>
     <servlet-name>snoop</servlet-name>
     <servlet-class>mydoget</servlet-class>

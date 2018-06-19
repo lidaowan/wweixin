@@ -49,7 +49,7 @@ public class shouye extends HttpServlet {
        doGet(req,resp);
     }
     public List getGoodsDao(Connection conn,String leibie){
-        String sql = "select id,gname,image1,hotmai from goods where gclass=? and shifouzhanshi=?";
+        String sql = "select id,gname,image1,hotmai from goods where gclass=? and shifouzhanshi=? limit 6";
         PreparedStatement ps = null;
 
         List list = new ArrayList();

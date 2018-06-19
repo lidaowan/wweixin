@@ -14,6 +14,16 @@
     <link href="/wweixin/weixin/css/MyCenter.css" rel="stylesheet" />
     <link href="/wweixin/weixin/css/WeUI/weui.min.css" rel="stylesheet" />
     <link href="/wweixin/weixin/css/mui/mui.min.css" rel="stylesheet" />
+
+<!-- 商城2 css和js引入 -->
+    <link href="/wweixin/weixin/css2/mui.min.css" rel="stylesheet" />
+    <link href="/wweixin/weixin/css2/style.css" rel="stylesheet" />
+
+
+
+
+
+
     <style>
         body {
             font-family: 'Microsoft YaHei';
@@ -34,6 +44,7 @@
     <title>详情页</title>
 </head>
 <body>
+
 <img src="/wweixin/weixin/images/${goodbean.image1}" style="width:100%;">
 <!--
 <div id="showIOSActionSheet" style="width:100%; height:70vw; text-align:center; line-height:80vw; position:absolute; top:0; ">
@@ -97,32 +108,35 @@
 </p>
 
 <p style="margin: 0 15px 0;">
-    用户购买本站资料后仅供在本平台使用学习，不得在第三方平台进行传播售卖
+    用户购买本站资料后仅供自己学习使用，不得在第三方平台进行传播
 </p>
 <br />
-<div>
-    <div class="weui-mask" id="iosMask" style="display: none"></div>
-    <div class="weui-actionsheet" id="iosActionsheet">
-        <!--   <div class="weui-actionsheet__title">
-              <p class="weui-actionsheet__title-text">购买后才能播放该视频</p>
-          </div> -->
-          <div class="weui-actionsheet__menu">
-              <div class="weui-actionsheet__cell" onclick="buy()">立即购买</div>
-            <!--  <div class="weui-actionsheet__cell" onclick="buy()">开通会员免费观看</div> -->
-        </div>
-        <div class="weui-actionsheet__action">
-            <div class="weui-actionsheet__cell" id="iosActionsheetCancel">取消</div>
-        </div>
-    </div>
-</div>
-<div id="loadingToast" style="display:none;">
-    <div class="weui-mask_transparent"></div>
-    <div class="weui-toast">
-        <i class="weui-loading weui-icon_toast"></i>
-        <p class="weui-toast__content">购买中</p>
-    </div>
-</div>
+
+
+
+
+<nav class="mui-bar mui-bar-tab" style="margin-top: 5px; background: #f5f5">
+    <a class="mui-tab-item mui-buttom-shopping" >
+        <span class="mui-tab-label"></span>
+    </a>
+    <a class="mui-tab-item mui-buttom-shopping" >
+        <span class="mui-tab-label"></span>
+    </a>
+    <a class="mui-tab-item mui-buttom-shopping" >
+        <span class="mui-tab-label"></span>
+    </a>
+    <a class="mui-tab-item mui-buttom-inshop" href="javascript:void(0);" onclick="yuzhifu(${goodbean.id})">
+        <span class="mui-tab-label"  >立即购买</span>
+    </a>
+
+</nav>
+
+
+
+
 <script src="/wweixin/weixin/js/jquery-1.9.1.min.js"></script>
+
+
 <script type="text/javascript">
     // ios
     $(function () {
@@ -151,6 +165,56 @@
        // alert('nihao');
         $('#zan').html(parseInt($('#zan').html()) + 1)
     }
+
+
+    function yuzhifu(shangpinid) {
+        alert('nihao');
+        var pwd = '';
+
+        $.ajax({dataType: "text",
+            url:"/wweixin/yanzheng/yuzhifu?shangpinid="+shangpinid,
+            async:false,
+            dataType: "text",
+            success: function (data) {
+                var json=eval('(' + data + ')');
+                function onBridgeReady(){
+                    WeixinJSBridge.invoke(
+                        'getBrandWCPayRequest', {
+                            "appId":json.appId,     //公众号名称，由商户传入
+                            "timeStamp":json.timeStamp,         //时间戳，自1970年以来的秒数
+                            "nonceStr":json.nonceStr, //随机串
+                            "package":json.mpackage,
+                            "signType":json.signType,         //微信签名方式：
+                            "paySign":json.paySign //微信签名
+                        },
+                        function(res){
+                            if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+
+
+                            }     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。
+                        }
+                    );
+                }
+                if (typeof WeixinJSBridge == "undefined"){
+                    if( document.addEventListener ){
+                        document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+                    }else if (document.attachEvent){
+                        document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                        document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+                    }
+                }else{
+                    onBridgeReady();
+                }
+
+
+            }
+        });
+
+
+
+    }
+
+
 </script>
 </body>
 </html>

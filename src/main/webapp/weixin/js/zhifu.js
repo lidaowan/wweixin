@@ -1,4 +1,5 @@
 function yuzhifu(shangpinid) {
+    alert('nihao');
     var pwd = '';
 
   $.ajax({dataType: "text",

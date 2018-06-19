@@ -27,7 +27,7 @@ public class yuzhifu extends HttpServlet {
    private String openid = null;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
-//        System.out.println("jinrule");
+   //     System.out.println("jinrule");
        shangpinid =  Integer.parseInt(req.getParameter("shangpinid"));
       spbill_create_ip = req.getRemoteAddr();
         HttpSession session = req.getSession();

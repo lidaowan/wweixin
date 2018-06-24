@@ -13,6 +13,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
     <link href="/wweixin/weixin/css/MyCenter.css" rel="stylesheet" />
     <link href="/wweixin/weixin/css/WeUI/weui.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/wweixin/weixin/css2/app.css">
+
     <style>
         body {
             font-family: 'Microsoft YaHei';
@@ -67,5 +70,16 @@
         </div>
     </div>
 </div>
+
+<footer class="footer-nav dis-box">
+    <a id="link_index" href="shouye" class="box-flex nav-list">
+        <i class="nav-box i-home"></i><span>首页</span>
+    </a>
+
+
+    <a id="link_user" href="gerenzhongxin" class="box-flex nav-list" >
+        <i class="nav-box i-user"></i><span>我的</span>
+    </a>
+</footer>
 </body>
 </html>

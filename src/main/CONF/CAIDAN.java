@@ -5,12 +5,12 @@ public class CAIDAN {
             "     {    \n" +
             "          \"type\":\"view\",\n" +
             "          \"name\":\"真实简历\",\n" +
-            "          \"url\":\"http://liyanlai.com/wweixin/yanzheng/shouye\"\n" +
+            "          \"url\":\"http://lidaohe.xyz/wweixin/yanzheng/shouye\"\n" +
             "      },\n" +
             "     {    \n" +
             "          \"type\":\"view\",\n" +
             "          \"name\":\"轻松一下\",\n" +
-            "          \"url\":\"http://lidaowan.com/wweixin/mao/index.html\"\n" +
+            "          \"url\":\"http://lidaohe.xyz/wweixin/mao/index.html\"\n" +
             "      },\n" +"]" +
             " }";
 

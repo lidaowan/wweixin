@@ -12,6 +12,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
     <link href="/wweixin/weixin/css/MyCenter.css" rel="stylesheet" />
     <link href="/wweixin/weixin/css/WeUI/weui.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/wweixin/weixin/css2/app.css">
+
     <title>我的订单</title>
     <style>
         body {
@@ -28,7 +31,7 @@
     <img src="/wweixin/weixin/images/bac.jpg" class="top_img">
     <div class="userInfo">
         <img class="uPic" src="http://wx.qlogo.cn/mmopen/uEGacf3tdXdHW1YwvOwevjV9dbHVjHM8FLkFqnib5DO2T4icwiaic9blbvt2iaod1F93t0vVAJ0DveLN9TmDx0CpHGabLny1PThhn/0" /><br />
-        <span class="uBalance">本杰明</span>
+
     </div>
 </div><br />
 <div class="page__bd" style="height: 100%;">
@@ -70,72 +73,24 @@
                     </div>
                 </div><br />
                 </c:forEach>
-                <div class="weui-form-preview">
-                    <div class="weui-form-preview__hd">
-                        <div class="weui-form-preview__item">
-                            <label class="weui-form-preview__label">订单金额</label>
-                            <em class="weui-form-preview__value">¥69.00</em>
-                        </div>
-                    </div>
-                    <div class="weui-form-preview__bd">
-                        <div class="weui-form-preview__item">
-                            <label class="weui-form-preview__label">课程名称</label>
-                            <span class="weui-form-preview__value">Java基础</span>
-                        </div>
-                        <div class="weui-form-preview__item">
-                            <label class="weui-form-preview__label">购买时间</label>
-                            <span class="weui-form-preview__value">2018-03-01 13:43:33</span>
-                        </div>
-                        <div class="weui-form-preview__item">
-                            <label class="weui-form-preview__label">课程简介</label>
-                            <span class="weui-form-preview__value">Java基础课包含字符串简介、类和方法、面向对象...</span>
-                        </div>
-                    </div>
-                    <div class="weui-form-preview__ft">
-                        <a class="weui-form-preview__btn weui-form-preview__btn_default" href="javascript:">已评价</a>
-                        <a class="weui-form-preview__btn weui-form-preview__btn_primary" href="shipinbofangye.html">立即查看</a>
-                    </div>
-                </div>
-                <br />
+
             </div>
-            <div id="o2" style="display:none;">
-                <br />
-                <div class="weui-form-preview">
-                    <div class="weui-form-preview__hd">
-                        <div class="weui-form-preview__item">
-                            <label class="weui-form-preview__label">订单金额</label>
-                            <em class="weui-form-preview__value">¥100.00</em>
-                        </div>
-                    </div>
-                    <div class="weui-form-preview__bd">
-                        <div class="weui-form-preview__item">
-                            <label class="weui-form-preview__label">订单名称</label>
-                            <span class="weui-form-preview__value">年费会员</span>
-                        </div>
-                        <div class="weui-form-preview__item">
-                            <label class="weui-form-preview__label">购买时间</label>
-                            <span class="weui-form-preview__value">2018-03-01 13:43:33</span>
-                        </div>
-                    </div>
-                </div><br />
-            </div>
+
         </div>
     </div>
 </div>
-<script src="/wweixin/weixin/js/jquery-1.9.1.min.js"></script>
-<script>
-    $(function () {
-        $('.weui-navbar__item').on('click', function () {
-            $(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
-            if ($('#o1').is(":hidden")) {
-                $('#o1').show();
-                $('#o2').hide();
-            } else {
-                $('#o1').hide();
-                $('#o2').show();
-            }
-        });
-    });
-</script>
+<div style="height: 60px"></div>
+
+
+<footer class="footer-nav dis-box">
+    <a id="link_index" href="shouye" class="box-flex nav-list">
+        <i class="nav-box i-home"></i><span>首页</span>
+    </a>
+
+
+    <a id="link_user" href="gerenzhongxin" class="box-flex nav-list" >
+        <i class="nav-box i-user"></i><span>我的</span>
+    </a>
+</footer>
 </body>
 </html>

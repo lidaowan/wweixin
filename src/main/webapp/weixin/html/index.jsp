@@ -16,6 +16,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
     <link href="/wweixin/weixin/css/WeUI/weui.min.css" rel="stylesheet" />
     <link href="/wweixin/weixin/css/mui/mui.min.css" rel="stylesheet" />
+
+
+    <link rel="stylesheet" href="/wweixin/weixin/css2/app.css">
+
+
+
     <style>
         body {
             font-family: 'Microsoft YaHei';
@@ -42,10 +48,11 @@
     <title>首页</title>
 </head>
 <body>
-<header class="mui-bar mui-bar-nav">
-   <!-- <h1 class="mui-title">微信平台视频付费系统</h1> -->
+<!-- <header class="mui-bar mui-bar-nav">
+   <h1 class="mui-title">微信平台视频付费系统</h1>
     <a href="gerenzhongxin" class="mui-pull-right"><img style="width:10vw; height:10vw; margin-top:2vw; margin-right:-1vw;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEAklEQVR4Xu2agZENQRCG/4sAESACRIAIEAEiQASIABEgAkSACBABIkAE1Kemq8a73bc7O3+ve/V2qq7e3t1ub/fff/d097wTHfk6OXL7tQGwMeDIEdhC4MgJsCXB/xEC5yVdkXRVEtesn5I+S/pSrlcj5loAYOhdSbcl3Ziw7oOkt5JerIHCGgBg+BNJlyqDPhaP43kWAMGI69U938pzrzOByAQAo14Wr2MDRj+XhIfD8F3beAaGABhhwoIN97NCIwsADHlfvPpL0kNJrxo9ea8Adq6w5WYGCBkA1MaT1Ih76LxkERYABxtIknYQMgCA9ngP46HzGN3nAgKgGH+xgEE42JYbAAyG+tCeaxR3LJhA7iAcYAHXluUG4FOJ+0clfi1KFiEkxscF1GsuwU4AiPU3kr7vbHkuXZFDLiEU7pTdoVu2EwCSFXt+hvfDUHaTZ5KoDcgz3csJwI9S0FzuyPpTBpELCDMS64Wpm+f83wUAmRoASH5R3895/5J7MJ5kCAC9O4ytG4zsT7U3VesvMbp+hh2AktmyG7gYsAFQ9v+NASuEQNQa1ALdhZYrBIjR3yVQnTKH8oX1PU5l8QZNi61IGbA+ii36DLbE7uUEgF7/wUSRwj0USxRNFDNBYYzh7xQ3/J2CZ2hFsfW0zAzOFAB1kUJ8DrXAAdI+xRmFDQHAROlredAS/8hyMgB54SGmOITC0AIoDOQzpj5QGjYA0Fhio88gBGxlcAYAeAkDqNTo21unQGPMIDSYM1Bp8o7uCjBe5GYAckNZrh0guOX9A3IGADUIvU0LfQVxz6cDzFMMywKAFxHnKM4go2eRF0iofNpXJgB2ZTMEbgBkoLpHJm1snAmSzeO0CIrzE2eENFWrrGwGxJkgmby1dGU7jYrRtu3topoFAJ5lgrs7t6PgiaOx8Do6BRviaCwKpNAXICh/lx6wjLLJDQAGMLSsDX9XJritRREyqPxuVdojg6GrjRFOAFCWai1mgtHU9CqLvGiiwAJ51ASU293LBQBejwaGBIb33HQlTGBAHKEDCmzoWg4A4iwQRTLPBMLQOBvgdwDpOivsBSCMd58FTnm1PivsAqEHgOjt1zY+wKlBGJshTAG5eB5Qd2i24cSktqdviCEM/1nULC1hAMmIyWxah9YIRDiD3WFsEmWtA2Iyw/7O1ncWFlsi9cK+SdSgnq0MqL8AYZ3MdKIIG9l2m79A0QpA5hcgOjH4O3do/gJFKwDWQ4leiweeb9ZvA6DRC80IN8rvvb1Zv6UM6J3z9Ro69nzoNduu2TeWNwbCWQa45M62a/aNRTP2/dbJjsuouXKYJM1ulVsBmKvEwdy3AXAwrkpSdGNAErAHI3ZjwMG4KknRo2fAHyptzUEKi1ngAAAAAElFTkSuQmCC"/></a>
-</header>
+</header> -->
+
 <div class="mui-content">
     <div id="slider" class="mui-slider">
         <div class="mui-slider-group mui-slider-loop">
@@ -97,7 +104,7 @@
     </div>
 </div>
 <div class="weui-search-bar" id="searchBar">
-    <form class="weui-search-bar__form" style="height: 30px;" onclick="location.href = '搜索页.html'">
+    <form class="weui-search-bar__form" style="height: 30px;" onclick="location.href = '/wweixin/weixin/html/product.html'">
         <div class="weui-search-bar__box">
             <i class="weui-icon-search"></i>
             <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required />
@@ -143,10 +150,21 @@
 </div>
 
 
-<br />
-<div class="weui-footer">
-    <p class="weui-footer__text">没有更多了</p>
-</div>
+<div style="height: 80px"></div>
+
+
+<footer class="footer-nav dis-box">
+    <a id="link_index" href="shouye" class="box-flex nav-list">
+        <i class="nav-box i-home"></i><span>首页</span>
+    </a>
+
+
+    <a id="link_user" href="gerenzhongxin" class="box-flex nav-list" >
+        <i class="nav-box i-user"></i><span>我的</span>
+    </a>
+</footer>
+
+
 <script src="/wweixin/weixin/js/mui.min.js"></script>
 <script>
     mui.init({

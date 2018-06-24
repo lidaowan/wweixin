@@ -22,6 +22,7 @@
 
 
 
+    <link rel="stylesheet" href="/wweixin/weixin/css2/app.css">
 
 
     <style>
@@ -55,7 +56,7 @@
         <div class="weui-media-box weui-media-box_text">
             <h4 class="weui-media-box__title">${goodbean.gname}<span style="float:right; margin-right:10px; color:#6d6d72; font-size:3vw;">
                                                             <img onclick="dianzan()" style="width:6vw; height:6vw;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAADlElEQVR4Xu2bQVbbMBCGZ5LarNrCru+V+MGmtVcNJyicoNyA9ASlJyCcoPQEJCdoewLoCaCrmG6gDrzXHYFdrZLpc0L6QmJZkoOwIpNlPHI0n0aj0S8FoeQfLLn/8AjgMQIMIXDiuTtEtA4IdST42mdsN/gNZ7q7Z8QU6NScFiJu3XWWepUb2Hh1wY51QjACQOg5lwC4OO0o9ShmazojwRAALnFHmejQ77INXVFQOIDO8pN1rFQOshys3NCarqkwFwCgT5/9c7atIwqKB1BzGoi4n+UcEX0PumzdSgDhsrMHFfwgcs6PYi2DpeWlImfGn4eeewoAK6I2FMerOlaDQgF0XsAKugMAwg/1+xvB+d9DoaGiQaEAZMM/8ck6AKeLsPjnmXOaXgCllES2RUDHc5sIsCMbsVZFgMrcHwFauI6XVnvQkwUma1dIDghrzgEgKq3r1iyDoedsA+An2REaJECAX0EUC5dKlXeObB80An6+dOr9Kh6pdtSKSnA4750j2aw/DokAdoMobqqCk7F/kAi4XfIOALAu06lJGyJ6H3RZK09bURvtAGZ1fpADNJXBybu1ArgX5zUmQK0AhgkP9vOG/f/QJfjmd+NNUSjnfZ4aAbcjt4WpOt3UDD17HbH2+LezJLwpR4gOETH3JoiAegvXrM0rolIBhN4gW8snrAnFRkbmyjti+drxFWYOgAyRMrUH1PMjtjR6ZB6AJJOmi6v3BABgvFQ1EgDc7WNmJRh6qhFgGYBOzUkSz1uV+WZ+BNCVH7Gpw5fUKWAjAN5+okwA2kGXNSajujwAOBuqdACKclVC1fQcwJPUSgOAJ6mVAkCWolQKAJCxoUoHIHFkPZlNzc4B9NGP2F5aXVMKAFlnCqUAkCWpWw9ApChnCCLupQ17AZGizNUEVXeEpiZB0Zmi9QBER2p2A5AQVPkAas4xIL6RzQNmTgH++i88G1TVBEwEIHO/kBsB8w5A9kTZXgBEqQKIlCCSGKlcYDJRD5A9UOVHgKIoYloOkL1SYycAoh9+l0mdbNkJAMTLn3AZPKlVNwmrX+axDlC5T8CPAEVRZDwHDE+X1TZTsqCFdhLV3/g7tABIfkC1jhA6Jmkg2vxIL4Oqozi56Ri0f+q2AOGdZN9nN8vxx4rMKzLDO33QBMDnvN4lFRcAtHi3uJKTYkBsIEBdZW+hRoOuoA+tPP8q0XpHSM2JYqwfARTD3ZxfLX0E/AOhKSJfhYv1tQAAAABJRU5ErkJggg==" />
-                <img onclick="dianzan()" style="width:6vw; height:6vw;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAADlElEQVR4Xu2bQVbbMBCGZ5LarNrCru+V+MGmtVcNJyicoNyA9ASlJyCcoPQEJCdoewLoCaCrmG6gDrzXHYFdrZLpc0L6QmJZkoOwIpNlPHI0n0aj0S8FoeQfLLn/8AjgMQIMIXDiuTtEtA4IdST42mdsN/gNZ7q7Z8QU6NScFiJu3XWWepUb2Hh1wY51QjACQOg5lwC4OO0o9ShmazojwRAALnFHmejQ77INXVFQOIDO8pN1rFQOshys3NCarqkwFwCgT5/9c7atIwqKB1BzGoi4n+UcEX0PumzdSgDhsrMHFfwgcs6PYi2DpeWlImfGn4eeewoAK6I2FMerOlaDQgF0XsAKugMAwg/1+xvB+d9DoaGiQaEAZMM/8ck6AKeLsPjnmXOaXgCllES2RUDHc5sIsCMbsVZFgMrcHwFauI6XVnvQkwUma1dIDghrzgEgKq3r1iyDoedsA+An2REaJECAX0EUC5dKlXeObB80An6+dOr9Kh6pdtSKSnA4750j2aw/DokAdoMobqqCk7F/kAi4XfIOALAu06lJGyJ6H3RZK09bURvtAGZ1fpADNJXBybu1ArgX5zUmQK0AhgkP9vOG/f/QJfjmd+NNUSjnfZ4aAbcjt4WpOt3UDD17HbH2+LezJLwpR4gOETH3JoiAegvXrM0rolIBhN4gW8snrAnFRkbmyjti+drxFWYOgAyRMrUH1PMjtjR6ZB6AJJOmi6v3BABgvFQ1EgDc7WNmJRh6qhFgGYBOzUkSz1uV+WZ+BNCVH7Gpw5fUKWAjAN5+okwA2kGXNSajujwAOBuqdACKclVC1fQcwJPUSgOAJ6mVAkCWolQKAJCxoUoHIHFkPZlNzc4B9NGP2F5aXVMKAFlnCqUAkCWpWw9ApChnCCLupQ17AZGizNUEVXeEpiZB0Zmi9QBER2p2A5AQVPkAas4xIL6RzQNmTgH++i88G1TVBEwEIHO/kBsB8w5A9kTZXgBEqQKIlCCSGKlcYDJRD5A9UOVHgKIoYloOkL1SYycAoh9+l0mdbNkJAMTLn3AZPKlVNwmrX+axDlC5T8CPAEVRZDwHDE+X1TZTsqCFdhLV3/g7tABIfkC1jhA6Jmkg2vxIL4Oqozi56Ri0f+q2AOGdZN9nN8vxx4rMKzLDO33QBMDnvN4lFRcAtHi3uJKTYkBsIEBdZW+hRoOuoA+tPP8q0XpHSM2JYqwfARTD3ZxfLX0E/AOhKSJfhYv1tQAAAABJRU5ErkJggg==" />
+
 
                                                             <span id="zan">111</span></span></h4>
             <h4 class="weui-media-box__title" style="color: #ff0000; font-weight: 600;">￥${goodbean.price}元&nbsp;&nbsp;<del style="font-size:3.5vw; color:#6d6d72;">${goodbean.zhiqianjiage}元</del></h4>
@@ -67,7 +68,7 @@
     </div>
 </div>
 <div class="title">
-    课程介绍
+    详情
 </div>
 <img style="width:100%;" src="/wweixin/weixin/images/${goodbean.jieshaotupian}" />
 <div class="title">
@@ -112,24 +113,14 @@
 </p>
 <br />
 
+<div style="height: 80px"></div>
 
 
+<div class="filter-btn dis-box">
 
-<nav class="mui-bar mui-bar-tab" style="margin-top: 5px; background: #f5f5">
-    <a class="mui-tab-item mui-buttom-shopping" >
-        <span class="mui-tab-label"></span>
-    </a>
-    <a class="mui-tab-item mui-buttom-shopping" >
-        <span class="mui-tab-label"></span>
-    </a>
-    <a class="mui-tab-item mui-buttom-shopping" >
-        <span class="mui-tab-label"></span>
-    </a>
-    <a class="mui-tab-item mui-buttom-inshop" href="javascript:void(0);" onclick="yuzhifu(${goodbean.id})">
-        <span class="mui-tab-label"  >立即购买</span>
-    </a>
+    <a type="button" class="btn-cart box-flex n-iphone5-top1 j-goods-attr j-show-div">立即购买</a>
 
-</nav>
+</div>
 
 
 

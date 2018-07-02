@@ -104,7 +104,7 @@
     </div>
 </div>
 <div class="weui-search-bar" id="searchBar">
-    <form class="weui-search-bar__form" style="height: 30px;" onclick="location.href = '/wweixin/weixin/html/product.html'">
+    <form class="weui-search-bar__form" style="height: 30px;" onclick="location.href = '/wweixin/weixin/html/product.jsp?openid=${ param["openid"] }&token=${ param["token"] }'">
         <div class="weui-search-bar__box">
             <i class="weui-icon-search"></i>
             <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required />
@@ -140,7 +140,7 @@
     <ul class="mui-table-view mui-grid-view">
 <c:forEach items="${dashujushipinList }" var="goodbean">
         <li class="mui-table-view-cell mui-media mui-col-xs-6">
-            <a href="/wweixin/yanzheng/xiangqing?good_id=${goodbean.id}">
+            <a href="/wweixin/yanzheng/xiangqing?good_id=${goodbean.id}&openid=${ param["openid"] }&token=${ param["token"] }">
                 <img class="mui-media-object" src="/wweixin/weixin/images/${goodbean.image1}">
                 <div class="mui-media-body">${goodbean.gname}</div>
             </a>
@@ -154,12 +154,12 @@
 
 
 <footer class="footer-nav dis-box">
-    <a id="link_index" href="shouye" class="box-flex nav-list">
+    <a id="link_index" href="/wweixin/yanzheng/shouye?openid=${ param["openid"] }" class="box-flex nav-list">
         <i class="nav-box i-home"></i><span>首页</span>
     </a>
 
 
-    <a id="link_user" href="gerenzhongxin" class="box-flex nav-list" >
+    <a id="link_user" href="/wweixin/yanzheng/gerenzhongxin?openid=${ param["openid"] }" class="box-flex nav-list" >
         <i class="nav-box i-user"></i><span>我的</span>
     </a>
 </footer>

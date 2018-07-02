@@ -12,16 +12,17 @@ import java.sql.SQLException;
 @WebServlet("/yanzheng/xiangqing")
 public class xiangqing extends HttpServlet {
     int goodid ;
-    int openid ;
-
+    String openid ;
+    String token;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
          goodid = Integer.parseInt(req.getParameter("good_id"));
-         openid = Integer.parseInt(req.getSession().getAttribute("openid").toString());
+         openid = req.getParameter("openid");
+         token = req.getParameter("token");
          goodbean gb = DaoGetGood();
          req.getSession().setAttribute("goodbean",gb);
-         req.getRequestDispatcher("/weixin/html/xiangqing.jsp").forward(req,resp);
+         req.getRequestDispatcher("/weixin/html/xiangqing.jsp?openid="+openid+"&token="+token).forward(req,resp);
 
     }
 
@@ -39,7 +40,7 @@ public class xiangqing extends HttpServlet {
         try {
 
             ps = conn.prepareStatement(sql);
-            ps.setInt(1,openid);
+            ps.setString(1,openid);
             ps.setInt(2,goodid);
              rs =ps.executeQuery();
             rs.next();

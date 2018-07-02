@@ -1,5 +1,6 @@
 public class yuzhifubean {
-    public String mbody;
+    public String appid;
+    public String body;
     public String mch_id;
     public String nonce_str;
     public String notify_url;
@@ -10,12 +11,21 @@ public class yuzhifubean {
     public String trade_type;
     public String sign;
 
-    public String getMbody() {
-        return mbody;
+
+    public String getAppid() {
+        return appid;
     }
 
-    public void setMbody(String mbody) {
-        this.mbody = mbody;
+    public void setAppid(String appid) {
+        this.appid = appid;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
     }
 
     public String getMch_id() {

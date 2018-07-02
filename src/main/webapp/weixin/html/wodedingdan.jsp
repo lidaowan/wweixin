@@ -83,12 +83,12 @@
 
 
 <footer class="footer-nav dis-box">
-    <a id="link_index" href="shouye" class="box-flex nav-list">
+    <a id="link_index" href="/wweixin/yanzheng/shouye?openid=${ param["openid"] }&token=${ param["token"] }" class="box-flex nav-list">
         <i class="nav-box i-home"></i><span>首页</span>
     </a>
 
 
-    <a id="link_user" href="gerenzhongxin" class="box-flex nav-list" >
+    <a id="link_user" href="/wweixin/yanzheng/gerenzhongxin?openid=${ param["openid"] }&token=${ param["token"] }" class="box-flex nav-list" >
         <i class="nav-box i-user"></i><span>我的</span>
     </a>
 </footer>

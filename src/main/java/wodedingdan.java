@@ -19,8 +19,8 @@ public class wodedingdan extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)  {
 
-HttpSession session = req.getSession();
-openid = (String) session.getAttribute("openid");
+
+openid = req.getParameter("openid");
         List list = getdingdanDao();
 req.setAttribute("dingdanlist",list);
 
@@ -40,7 +40,7 @@ req.setAttribute("dingdanlist",list);
     List list = new ArrayList();
         try {
              ps = conn.prepareStatement(sql);
-             ps.setInt(1,Integer.parseInt(openid));
+             ps.setString(1,openid);
              ResultSet rs = ps.executeQuery();
              while (rs.next()){
                  dingdanBEAN db = new dingdanBEAN();

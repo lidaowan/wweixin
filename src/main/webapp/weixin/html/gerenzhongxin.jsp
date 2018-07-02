@@ -43,7 +43,7 @@
     <div class="weui-panel__bd">
         <div class="weui-media-box weui-media-box_small-appmsg">
             <div class="weui-cells">
-                <a class="weui-cell weui-cell_access" href="wodedingdan?${openid}">
+                <a class="weui-cell weui-cell_access" href="/wweixin/yanzheng/wodedingdan?openid=${ param["openid"] }&token=${ param["token"] }">
                     <div class="weui-cell__hd"><img src="data:image/png;base64,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" alt="" style="width:20px;margin-right:5px;display:block"></div>
                     <div class="weui-cell__bd weui-cell_primary">
                         <p>我的订单</p>
@@ -72,12 +72,12 @@
 </div>
 
 <footer class="footer-nav dis-box">
-    <a id="link_index" href="shouye" class="box-flex nav-list">
+    <a id="link_index" href="/wweixin/yanzheng/shouye?openid=${ param["openid"] }&token=${ param["token"] }" class="box-flex nav-list">
         <i class="nav-box i-home"></i><span>首页</span>
     </a>
 
 
-    <a id="link_user" href="gerenzhongxin" class="box-flex nav-list" >
+    <a id="link_user" href="/wweixin/yanzheng/gerenzhongxin?openid=${ param["openid"] }&token=${ param["token"] }" class="box-flex nav-list" >
         <i class="nav-box i-user"></i><span>我的</span>
     </a>
 </footer>

@@ -15,7 +15,7 @@ import java.net.URISyntaxException;
 
 public class HttpsPost {
 
-    public void post(String value,String url) throws IOException {
+    public String post(String value,String url) throws IOException {
         DefaultHttpClient client = null;
 
   try {
@@ -33,12 +33,14 @@ public class HttpsPost {
 
 
        String str = EntityUtils.toString(result.getEntity());
-        System.out.println(str);}
+        System.out.println(str);
+        return str;
+  }
         catch (Exception e){
     e.printStackTrace();
         }finally {
     client.close();
         }
-
+return null;
     }
 }

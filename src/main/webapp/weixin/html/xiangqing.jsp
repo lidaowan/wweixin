@@ -118,7 +118,7 @@
 
 <div class="filter-btn dis-box">
 
-    <a type="button" class="btn-cart box-flex n-iphone5-top1 j-goods-attr j-show-div">立即购买</a>
+    <a type="button" class="btn-cart box-flex n-iphone5-top1 j-goods-attr j-show-div" onclick="yuzhifu(${goodbean.id})">立即购买</a>
 
 </div>
 
@@ -159,15 +159,18 @@
 
 
     function yuzhifu(shangpinid) {
-        alert('nihao');
+
         var pwd = '';
 
-        $.ajax({dataType: "text",
-            url:"/wweixin/yanzheng/yuzhifu?shangpinid="+shangpinid,
-            async:false,
+        $.ajax(
+            { dataType: "text",
+            url:"/wweixin/yanzheng/yuzhifu?shangpinid="+shangpinid+"&openid=${ param["openid"] }&token=${ param["token"] }",
+            async:true,
             dataType: "text",
             success: function (data) {
+                    alert(data);
                 var json=eval('(' + data + ')');
+                alert(json);
                 function onBridgeReady(){
                     WeixinJSBridge.invoke(
                         'getBrandWCPayRequest', {
@@ -185,7 +188,7 @@
                             }     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。
                         }
                     );
-                }
+                };
                 if (typeof WeixinJSBridge == "undefined"){
                     if( document.addEventListener ){
                         document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);

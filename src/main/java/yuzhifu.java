@@ -3,7 +3,9 @@ import com.mysql.jdbc.StringUtils;
 import com.thoughtworks.xstream.XStream;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.commons.httpclient.methods.PostMethod;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,8 +32,8 @@ public class yuzhifu extends HttpServlet {
    //     System.out.println("jinrule");
        shangpinid =  Integer.parseInt(req.getParameter("shangpinid"));
       spbill_create_ip = req.getRemoteAddr();
-        HttpSession session = req.getSession();
-         openid = (String) session.getAttribute("openid");
+      //  spbill_create_ip =  "124.65.241.114";
+         openid = req.getParameter("openid");
 yuzhifubean yb = BeanDaoAndOther();
 
         String txml = buildXML(yb);
@@ -82,13 +84,28 @@ if(zf.prepay_id!=null && !"".equals(zf.prepay_id)){
 
     private zhifufanhuiBEAN sendANDget(String zxml) {
 
-        HttpClient httpClient = new HttpClient();
-        GetMethod getMethod = new GetMethod("https://api.mch.weixin.qq.com/pay/unifiedorder");
-        int execute = 0;
+       // XStream xstream1 = new XStream();
+
+//        XStream.setupDefaultSecurity(xstream1);
+//        xstream1.allowTypes(new Class[]{yuzhifu.class, zhifufanhuiBEAN.class});
+      //  xstream1.alias("xml", yuzhifubean.class);
+      // yuzhifubean yf = (yuzhifubean)xstream1.fromXML(zxml);
+     // String zxml1 = xstream1.toXML(yf);
+//        HttpClient httpClient = new HttpClient();
+//        PostMethod getMethod = new PostMethod("https://api.mch.weixin.qq.com/pay/unifiedorder");
+       // int execute = 0;
         try {
-            execute = httpClient.executeMethod(getMethod);
-            System.out.println("execute:"+execute);
-            String getResponse = getMethod.getResponseBodyAsString();
+//            NameValuePair message = new NameValuePair("json", zxml1);
+//            getMethod.setRequestBody(new NameValuePair[]{message});
+//
+//
+//            execute = httpClient.executeMethod(getMethod);
+//            System.out.println("execute:"+execute);
+
+System.out.println("xml是："+zxml);
+           // String getResponse = getMethod.getResponseBodyAsString();
+            HttpsPost hp = new HttpsPost();
+          String  getResponse  = hp.post(zxml,"https://api.mch.weixin.qq.com/pay/unifiedorder");
             XStream xstream = new XStream();
             //将别名与xml名字相对应
             xstream.alias("xml", zhifufanhuiBEAN.class);
@@ -110,9 +127,9 @@ return null;
              ps.setInt(1,shangpinid);
              ResultSet rs =ps.executeQuery();
              rs.next();
-             yb.setMbody(rs.getString(1));
+             yb.setBody(rs.getString(1));
              yb.setOut_trade_no(rs.getInt(2)+"");
-             yb.setTotal_fee(rs.getDouble(3)+"");
+             yb.setTotal_fee(((int)(rs.getDouble(3)*100))+"");
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
@@ -123,7 +140,7 @@ return null;
                 e.printStackTrace();
             }
         }
-     yb.setNonce_str(UUID.randomUUID().toString().substring(0,31));
+     yb.setNonce_str(UUID.randomUUID().toString().substring(0,32));
         yb.setOpenid(openid);
   yb.setSpbill_create_ip(spbill_create_ip);
 
@@ -136,7 +153,7 @@ return null;
 
         String xml = "<xml>\n" +
                 "   <appid>"+CONFIG.APPID+"</appid>\n" +
-                "   <body>"+yb.mbody+"</body>\n" +
+                "   <body>"+yb.body+"</body>\n" +
                 "   <mch_id>"+CONFIG.MCH_ID+"</mch_id>\n" +
                 "   <nonce_str>"+yb.nonce_str+"</nonce_str>\n" +
                 "   <notify_url>"+CONFIG.NOTIFY_URL+"</notify_url>\n" +
@@ -149,7 +166,7 @@ return null;
     }
 public String qianming(yuzhifubean yb){
    String md5 = null;
-    String[] arr = new String[] { "mch_id="+CONFIG.MCH_ID,"notify_url="+CONFIG.NOTIFY_URL,"trade_type="+CONFIG.TRADE_TYPE,"appid="+CONFIG.APPID,"body="+yb.getMbody(),"nonce_str="+yb.getNonce_str(),"openid="+yb.getOpenid(),"out_trade_no="+yb.getOut_trade_no(),"spbill_create_ip="+yb.getSpbill_create_ip(),"total_fee="+yb.getTotal_fee()};
+    String[] arr = new String[] { "mch_id="+CONFIG.MCH_ID,"notify_url="+CONFIG.NOTIFY_URL,"trade_type="+CONFIG.TRADE_TYPE,"appid="+CONFIG.APPID,"body="+yb.getBody(),"nonce_str="+yb.getNonce_str(),"openid="+yb.getOpenid(),"out_trade_no="+yb.getOut_trade_no(),"spbill_create_ip="+yb.getSpbill_create_ip(),"total_fee="+yb.getTotal_fee()};
     // 将参数进行字典序排序
     Arrays.sort(arr);
     // sort(arr);
@@ -159,11 +176,13 @@ public String qianming(yuzhifubean yb){
         content.append("&");
     }
     content.append("key="+CONFIG.KEY);
+    System.out.println(content);
     try {
         md5=DigestUtils.md5Hex(new String(content.toString().getBytes("utf-8"))).toUpperCase();
     } catch (UnsupportedEncodingException e) {
         e.printStackTrace();
     }
+    System.out.println("B"+md5);
     return md5;
 }
 

@@ -23,7 +23,7 @@ public class Zhongkong extends HttpServlet {
         HttpClient httpClient = new HttpClient();
         GetMethod getMethod = new GetMethod(s1);
         int execute = httpClient.executeMethod(getMethod);
-        System.out.println("execute:"+execute);
+
         String getResponse = getMethod.getResponseBodyAsString();
         JSONObject jsonObject =    JSONObject.parseObject(getResponse);
 

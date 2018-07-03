@@ -168,22 +168,35 @@
             async:true,
             dataType: "text",
             success: function (data) {
-                    alert(data);
+
                 var json=eval('(' + data + ')');
-                alert(json);
+
                 function onBridgeReady(){
+                    // alert("kaishi");
+                    // alert(json.appId);
+                    // alert(json.timeStamp);
+                    // alert(json.nonceStr);
+                    // alert(json.mpackage);
+                    // alert(json.signType);
+                    // alert(json.paySign);
+
                     WeixinJSBridge.invoke(
                         'getBrandWCPayRequest', {
-                            "appId":json.appId,     //公众号名称，由商户传入
-                            "timeStamp":json.timeStamp,         //时间戳，自1970年以来的秒数
-                            "nonceStr":json.nonceStr, //随机串
-                            "package":json.mpackage,
-                            "signType":json.signType,         //微信签名方式：
-                            "paySign":json.paySign //微信签名
+                             "appId":"wx565d4d363899f0cd",     //公众号名称，由商户传入
+                            "timeStamp":json.timeStamp+"",         //时间戳，自1970年以来的秒数
+                            "nonceStr":json.nonceStr+"", //随机串
+                            "package":json.mpackage+"",
+                            "signType":json.signType+"",         //微信签名方式：
+                            "paySign":json.paySign+""  //微信签名
+
                         },
                         function(res){
-                            if(res.err_msg == "get_brand_wcpay_request:ok" ) {
 
+
+                            alert(JSON.stringify(res));
+
+                            if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+                             alert("支付成功");
 
                             }     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。
                         }

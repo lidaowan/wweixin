@@ -18,7 +18,7 @@ public class dengluyanzhengFilter implements Filter {
     @Override
     public void doFilter(ServletRequest arg0, ServletResponse arg1,
                          FilterChain arg2) {
-      System.out.println("登录验证");
+
         HttpServletRequest req = (HttpServletRequest) arg0;
         HttpServletResponse resp = (HttpServletResponse) arg1;
       //  req.getSession().setAttribute("openid","11123");

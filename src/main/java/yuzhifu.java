@@ -63,7 +63,7 @@ if(zf.prepay_id!=null && !"".equals(zf.prepay_id)){
         //String paySign = qianmingUtil.shengchengqianming(list);
         jSbean.setAppId(CONFIG.APPID);
         jSbean.setTimeStamp(timestamp);
-        jSbean.setNonceStr(UUID.randomUUID().toString().substring(0,31));
+        jSbean.setNonceStr(UUID.randomUUID().toString().substring(0,32));
         jSbean.setMpackage("prepay_id="+zf.getPrepay_id());
         jSbean.setSignType("MD5");
 
@@ -71,8 +71,9 @@ if(zf.prepay_id!=null && !"".equals(zf.prepay_id)){
 
         list.add("timeStamp="+jSbean.getTimeStamp());
         list.add("nonceStr="+jSbean.getNonceStr());
-        list.add("package=prepay_id="+jSbean.getMpackage());
+        list.add("package="+jSbean.getMpackage());
         list.add("signType="+jSbean.getSignType());
+
 
         jSbean.setPaySign(qianmingUtil.shengchengqianming(list));
 
@@ -102,7 +103,7 @@ if(zf.prepay_id!=null && !"".equals(zf.prepay_id)){
 //            execute = httpClient.executeMethod(getMethod);
 //            System.out.println("execute:"+execute);
 
-System.out.println("xml是："+zxml);
+
            // String getResponse = getMethod.getResponseBodyAsString();
             HttpsPost hp = new HttpsPost();
           String  getResponse  = hp.post(zxml,"https://api.mch.weixin.qq.com/pay/unifiedorder");
@@ -165,26 +166,26 @@ return null;
         return xml;
     }
 public String qianming(yuzhifubean yb){
-   String md5 = null;
-    String[] arr = new String[] { "mch_id="+CONFIG.MCH_ID,"notify_url="+CONFIG.NOTIFY_URL,"trade_type="+CONFIG.TRADE_TYPE,"appid="+CONFIG.APPID,"body="+yb.getBody(),"nonce_str="+yb.getNonce_str(),"openid="+yb.getOpenid(),"out_trade_no="+yb.getOut_trade_no(),"spbill_create_ip="+yb.getSpbill_create_ip(),"total_fee="+yb.getTotal_fee()};
-    // 将参数进行字典序排序
-    Arrays.sort(arr);
-    // sort(arr);
-    StringBuilder content = new StringBuilder();
-    for (int i = 0; i < arr.length; i++) {
-        content.append(arr[i]);
-        content.append("&");
+        String md5 = null;
+        String[] arr = new String[] { "mch_id="+CONFIG.MCH_ID,"notify_url="+CONFIG.NOTIFY_URL,"trade_type="+CONFIG.TRADE_TYPE,"appid="+CONFIG.APPID,"body="+yb.getBody(),"nonce_str="+yb.getNonce_str(),"openid="+yb.getOpenid(),"out_trade_no="+yb.getOut_trade_no(),"spbill_create_ip="+yb.getSpbill_create_ip(),"total_fee="+yb.getTotal_fee()};
+        // 将参数进行字典序排序
+        Arrays.sort(arr);
+        // sort(arr);
+        StringBuilder content = new StringBuilder();
+        for (int i = 0; i < arr.length; i++) {
+            content.append(arr[i]);
+            content.append("&");
+        }
+        content.append("key="+CONFIG.KEY);
+
+        try {
+            md5=DigestUtils.md5Hex(new String(content.toString().getBytes("utf-8"))).toUpperCase();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        return md5;
     }
-    content.append("key="+CONFIG.KEY);
-    System.out.println(content);
-    try {
-        md5=DigestUtils.md5Hex(new String(content.toString().getBytes("utf-8"))).toUpperCase();
-    } catch (UnsupportedEncodingException e) {
-        e.printStackTrace();
-    }
-    System.out.println("B"+md5);
-    return md5;
-}
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

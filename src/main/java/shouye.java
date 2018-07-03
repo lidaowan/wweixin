@@ -65,7 +65,7 @@ public class shouye extends HttpServlet {
                  gb.setGname(rs.getString(2));
                  gb.setHotmai(rs.getString(4));
                  list.add(gb);
-                 System.out.println("dedao");
+
              }
              return list;
 

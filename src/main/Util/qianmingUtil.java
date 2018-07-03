@@ -17,9 +17,11 @@ public class qianmingUtil {
         StringBuilder content = new StringBuilder();
         for (int i = 0; i < arr.length; i++) {
             content.append(arr[i]);
+
             content.append("&");
         }
         content.append("key="+CONFIG.KEY);
+
         try {
             md5=DigestUtils.md5Hex(new String(content.toString().getBytes("utf-8"))).toUpperCase();
         } catch (UnsupportedEncodingException e) {

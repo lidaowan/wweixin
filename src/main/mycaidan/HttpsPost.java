@@ -33,7 +33,7 @@ public class HttpsPost {
 
 
        String str = EntityUtils.toString(result.getEntity());
-        System.out.println(str);
+
         return str;
   }
         catch (Exception e){

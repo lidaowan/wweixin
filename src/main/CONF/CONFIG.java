@@ -7,7 +7,7 @@ public class CONFIG {
   //  public static final String PATH="E:\\qq.txt";
 
     public static final String MCH_ID="1507792151";
-    public static final String NOTIFY_URL="http://www.lidaowan.com/wweixin/yanzheng/zhifujieguo";
+    public static final String NOTIFY_URL="http://www.lidaowan.com/wweixin/zk/zhifujieguo";
     public static final String TRADE_TYPE="JSAPI";
     public static final String KEY ="abafgtyhjd23465gthuxcdsfgh78kluy";
 

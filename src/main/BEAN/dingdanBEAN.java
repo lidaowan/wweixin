@@ -5,6 +5,34 @@ public class dingdanBEAN {
     public String goumaishijian;
     public String jianjie;
     public int goodid;
+    public String image1;
+    public String order_id;
+    public String neirong;
+
+
+    public String getNeirong() {
+        return neirong;
+    }
+
+    public void setNeirong(String neirong) {
+        this.neirong = neirong;
+    }
+
+    public String getOrder_id() {
+        return order_id;
+    }
+
+    public void setOrder_id(String order_id) {
+        this.order_id = order_id;
+    }
+
+    public String getImage1() {
+        return image1;
+    }
+
+    public void setImage1(String image1) {
+        this.image1 = image1;
+    }
 
     public Double getPrice() {
         return price;

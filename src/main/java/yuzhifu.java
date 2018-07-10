@@ -40,6 +40,7 @@ yuzhifubean yb = BeanDaoAndOther();
 String md5 = qianming(yb);
 String zxml = txml+ "   <sign>"+md5+"</sign>\n" +
         "</xml>";
+System.out.println("发送的XML是："+zxml);
 zhifufanhuiBEAN zf = sendANDget(zxml);
 if(zf.prepay_id!=null && !"".equals(zf.prepay_id)){
 
@@ -107,7 +108,10 @@ if(zf.prepay_id!=null && !"".equals(zf.prepay_id)){
            // String getResponse = getMethod.getResponseBodyAsString();
             HttpsPost hp = new HttpsPost();
           String  getResponse  = hp.post(zxml,"https://api.mch.weixin.qq.com/pay/unifiedorder");
+          System.out.println(getResponse);
             XStream xstream = new XStream();
+            XStream.setupDefaultSecurity(xstream);
+            xstream.allowTypes(new Class[]{zhifufanhuiBEAN.class});
             //将别名与xml名字相对应
             xstream.alias("xml", zhifufanhuiBEAN.class);
             zhifufanhuiBEAN zf = (zhifufanhuiBEAN) xstream.fromXML(getResponse);
@@ -120,22 +124,34 @@ return null;
 
     private yuzhifubean BeanDaoAndOther() {
         yuzhifubean yb = new yuzhifubean();
+        String Out_trade_no = UUID.randomUUID().toString().substring(0,32);
        Connection conn = C3p0pool.getConnection();
        String sql = "select gname,id,price from goods where id=?";
+       String sql2 = "insert into orders (id,user_openid,good_id,shifoushengxiao) values(?,?,?,?)";
         PreparedStatement ps = null;
+        PreparedStatement ps2 = null;
+        ResultSet rs = null;
         try {
              ps = conn.prepareStatement(sql);
              ps.setInt(1,shangpinid);
-             ResultSet rs =ps.executeQuery();
+              rs =ps.executeQuery();
              rs.next();
              yb.setBody(rs.getString(1));
-             yb.setOut_trade_no(rs.getInt(2)+"");
+             yb.setOut_trade_no(Out_trade_no);
              yb.setTotal_fee(((int)(rs.getDouble(3)*100))+"");
+             ps2 = conn.prepareStatement(sql2);
+             ps2.setString(1,Out_trade_no);
+             ps2.setString(2,openid);
+             ps2.setInt(3,shangpinid);
+             ps2.setString(4,"N");
+             ps2.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
             try {
+                rs.close();
                 ps.close();
+                ps2.close();
                 conn.close();
             } catch (SQLException e) {
                 e.printStackTrace();

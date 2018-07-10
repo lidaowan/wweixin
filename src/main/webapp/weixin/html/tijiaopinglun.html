@@ -15,19 +15,66 @@
     </style>
     <title>购买完成</title>
 </head>
+
+<script type="text/javascript" src="/wweixin/weixin/js/check.js"></script>
+<script type="text/javascript">
+    function mycheck() {
+
+        var ispost = true;
+       var em = get("nr").value;
+        alert(em)
+        if (isNull(em)) {
+            alert("if")
+            get("youxiang").innerHTML = "评价不能为空";
+            ispost = false;
+        }
+
+        return ispost;
+    }
+
+    function isNull( str ){
+
+        if ( str == "" ) return true;
+        var regu = "^[ ]+$";
+        var re = new RegExp(regu);
+        return re.test(str);
+    }
+
+    function get(id){
+
+        return document.getElementById(id);
+    }
+</script>
+
 <body>
     <img src="../images/shuijiao.jpg" style="width:100%;">
-    <div class="weui-cells__title">Java基础课程</div>
+    <div class="weui-cells__title" ><span id="nn">%e5%a4%a7%e6%95%b0%e6%8d%ae%e8%a7%86%e9%a2%91</span></div>
+    <form onsubmit="return mycheck();" action="/wweixin/yanzheng/pingjia?openid=${param['openid'] }" method="post">
     <div class="weui-cells weui-cells_form">
         <div class="weui-cell">
             <div class="weui-cell__bd">
-                <textarea class="weui-textarea" placeholder="请输入内容" rows="3"></textarea>
-                <div class="weui-textarea-counter"><span>0</span>/200</div>
+                <textarea id="nr" name="pingjianeirong" class="weui-textarea" placeholder="请输入内容" rows="3"></textarea>
+                <CSS id="youxiang" color="red" ></CSS>
+                <div class="weui-textarea-counter" ><span>0</span>/200</div>
             </div>
         </div>
     </div>
     <div class="weui-btn-area">
-        <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">立即提交</a>
+        <button type="submit" class="weui-btn weui-btn_primary"  id="showTooltips">立即提交</button>
     </div>
+    </form>
+    <script src="/wweixin/weixin/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+
+        //在jquery中调用，表示页面一加载就调用btnOKClick方法，最后弹出aaa
+        $(function(){
+            alert('hh')
+            var nr = $("#nn").text();
+            alert(nr);
+            var nr1 = decodeURI(nr);
+            $("#nn").html(nr1);
+        });
+    </script>
 </body>
+
 </html>

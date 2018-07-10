@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2018/5/31
-  Time: 17:00
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -104,7 +98,7 @@
     </div>
 </div>
 <div class="weui-search-bar" id="searchBar">
-    <form class="weui-search-bar__form" style="height: 30px;" onclick="location.href = '/wweixin/weixin/html/product.jsp?openid=${ param["openid"] }&token=${ param["token"] }'">
+    <form class="weui-search-bar__form" style="height: 30px;" onclick="javascript:location.href = '/wweixin/yanzheng/product?openid=${ param["openid"] }'">
         <div class="weui-search-bar__box">
             <i class="weui-icon-search"></i>
             <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required />
@@ -123,7 +117,7 @@
     <ul class="mui-table-view mui-grid-view">
 <c:forEach items="${jianliList }" var="goodbean">
         <li class="mui-table-view-cell mui-media mui-col-xs-6">
-            <a href="/wweixin/yanzheng/xiangqing?good_id=${goodbean.id}">
+            <a href="/wweixin/yanzheng/xiangqing?good_id=${goodbean.id}&openid=${ param["openid"] }">
                 <img class="mui-media-object" src="/wweixin/weixin/images/${goodbean.image1}">
                 <div class="mui-media-body">${goodbean.gname}</div>
             </a>
@@ -136,11 +130,11 @@
 </div>
 
 <div class="mui-content" style="background-color:#fff">
-    <h5 style="background-color:#efeff4">大数据视频<a href="shipinliebiao.html" style="float:right; margin-right:10px;">更多</a></h5>
+    <h5 style="background-color:#efeff4">大数据视频<a href="/wweixin/yanzheng/shangpinliebiao?gclass=dashujushipin&openid=${ param["openid"] }" style="float:right; margin-right:10px;">更多</a></h5>
     <ul class="mui-table-view mui-grid-view">
 <c:forEach items="${dashujushipinList }" var="goodbean">
         <li class="mui-table-view-cell mui-media mui-col-xs-6">
-            <a href="/wweixin/yanzheng/xiangqing?good_id=${goodbean.id}&openid=${ param["openid"] }&token=${ param["token"] }">
+            <a href="/wweixin/yanzheng/xiangqing?good_id=${goodbean.id}&openid=${ param["openid"] }">
                 <img class="mui-media-object" src="/wweixin/weixin/images/${goodbean.image1}">
                 <div class="mui-media-body">${goodbean.gname}</div>
             </a>

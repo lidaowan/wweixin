@@ -18,7 +18,15 @@ public class goodbean {
     public String hotmai;
     public String jianjie;
     public String openid; //如果此字段有内容，则商品展示下载地址，否则不展示下载地址。
+    public int xiaoliang;
 
+    public int getXiaoliang() {
+        return xiaoliang;
+    }
+
+    public void setXiaoliang(int xiaoliang) {
+        this.xiaoliang = xiaoliang;
+    }
 
     public String getOpenid() {
         return openid;

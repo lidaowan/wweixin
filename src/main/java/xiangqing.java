@@ -35,7 +35,7 @@ public class xiangqing extends HttpServlet {
                 "g.`price`, g.`describes`, g.`gclass`, g.`dianzancishu`, g.`wangpandizhi`,\n" +
                 " g.`wangpanmima`, g.`jieshaotupian`, g.`zhiqianjiage`, g.`shifoumianfei`, g.`time`, \n" +
                 "g.`hotmai`, g.`jianjie`, g.`shifouzhanshi` ,o.`user_openid`\n" +
-                "from goods g LEFT JOIN (SELECT * from orders where user_openid=?) as o ON o.good_id=g.id  where g.id=?;";
+                "from goods g LEFT JOIN (SELECT * from orders where user_openid=? and shifoushengxiao='Y') as o ON o.good_id=g.id  where g.id=?;";
       conn =  C3p0pool.getConnection();
         try {
 

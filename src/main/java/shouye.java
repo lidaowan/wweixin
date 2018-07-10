@@ -18,29 +18,35 @@ public class shouye extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-
-      Connection connection1 =  C3p0pool.getConnection();
-     List list1 = getGoodsDao(connection1,"jianli");
-      session.setAttribute("jianliList",list1);
-
-
-        List list2 = getGoodsDao(connection1,"javashipin");
-        session.setAttribute("javashipinList",list2);
-
-
-        List list3 = getGoodsDao(connection1,"dashujushipin");
-        session.setAttribute("dashujushipinList",list3);
-
-
-        List list4 = getGoodsDao(connection1,"qianduanshipin");
-        session.setAttribute("qianduanshipinList",list4);
-
-        req.getRequestDispatcher("/weixin/html/index.jsp").forward(req, resp);
-
+        Connection connection1 =  C3p0pool.getConnection();
         try {
-            connection1.close();
-        } catch (SQLException e) {
+
+
+
+            List list1 = getGoodsDao(connection1,"jianli");
+            session.setAttribute("jianliList",list1);
+
+
+            List list2 = getGoodsDao(connection1,"javashipin");
+            session.setAttribute("javashipinList",list2);
+
+
+            List list3 = getGoodsDao(connection1,"dashujushipin");
+            session.setAttribute("dashujushipinList",list3);
+
+
+            List list4 = getGoodsDao(connection1,"qianduanshipin");
+            session.setAttribute("qianduanshipinList",list4);
+
+            req.getRequestDispatcher("/weixin/html/index.jsp").forward(req, resp);
+        } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+            try {
+                connection1.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -51,13 +57,13 @@ public class shouye extends HttpServlet {
     public List getGoodsDao(Connection conn,String leibie){
         String sql = "select id,gname,image1,hotmai from goods where gclass=? and shifouzhanshi=? limit 6";
         PreparedStatement ps = null;
-
+        ResultSet rs = null;
         List list = new ArrayList();
         try {
              ps = conn.prepareStatement(sql);
              ps.setString(1,leibie);
              ps.setInt(2,1);
-             ResultSet rs =ps.executeQuery();
+              rs =ps.executeQuery();
              while (rs.next()){
                  goodbean gb = new goodbean();
                  gb.setId(rs.getInt(1));
@@ -73,6 +79,7 @@ public class shouye extends HttpServlet {
             e.printStackTrace();
         }finally {
             try {
+                rs.close();
                 ps.close();
 
             } catch (SQLException e) {

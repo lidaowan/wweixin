@@ -49,6 +49,12 @@ public class dianzan extends HttpServlet {
         }finally {
             try {
                 ps.close();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+
                 conn.close();
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -91,7 +97,19 @@ public class dianzan extends HttpServlet {
 
             try {
                 resultSet.close();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+
                 ps.close();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+
                 connection.close();
             } catch (SQLException e) {
                 e.printStackTrace();

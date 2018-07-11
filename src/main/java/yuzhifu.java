@@ -150,12 +150,36 @@ return null;
         }finally {
             try {
                 rs.close();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+
                 ps.close();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+
                 ps2.close();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+
                 conn.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+
+
+
+
+
+
         }
      yb.setNonce_str(UUID.randomUUID().toString().substring(0,32));
         yb.setOpenid(openid);

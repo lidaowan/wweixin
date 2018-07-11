@@ -52,7 +52,7 @@ public class xiangqing extends HttpServlet {
             gb.setPrice(rs.getDouble(6));
             gb.setDescribes(rs.getString(7));
             gb.setGclass(rs.getString(8));
-            gb.setDianzancishu(rs.getString(9));
+            gb.setDianzancishu(rs.getInt(9));
             gb.setWangpandizhi(rs.getString(10));
             gb.setWangpanmima(rs.getString(11));
             gb.setJieshaotupian(rs.getString(12));
@@ -68,7 +68,19 @@ public class xiangqing extends HttpServlet {
         }finally {
             try {
                 rs.close();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+
                 ps.close();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+
                 conn.close();
             } catch (SQLException e) {
                 e.printStackTrace();

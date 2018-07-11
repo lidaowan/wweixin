@@ -8,7 +8,7 @@ public class goodbean {
     public String describes;
     public String gclass;
     public String image2;
-    public String dianzancishu;
+    public int dianzancishu;
     public String wangpandizhi;
     public String wangpanmima;
     public String jieshaotupian;
@@ -100,11 +100,11 @@ public class goodbean {
         this.gclass = gclass;
     }
 
-    public String getDianzancishu() {
+    public int getDianzancishu() {
         return dianzancishu;
     }
 
-    public void setDianzancishu(String dianzancishu) {
+    public void setDianzancishu(int dianzancishu) {
         this.dianzancishu = dianzancishu;
     }
 

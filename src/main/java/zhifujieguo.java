@@ -66,6 +66,12 @@ public class zhifujieguo extends HttpServlet {
         }finally {
             try {
                 ps.close();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+
                 conn.close();
             } catch (SQLException e) {
                 e.printStackTrace();

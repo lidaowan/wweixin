@@ -116,7 +116,7 @@ List list = new ArrayList();
                 gb.setPrice(rs.getDouble(4));
                 gb.setZhiqianjiage(rs.getString(5));
                 gb.setXiaoliang(rs.getInt(6));
-                gb.setDianzancishu(rs.getString(7));
+                gb.setDianzancishu(rs.getInt(7));
                 list.add(gb);
             }
             return list;
@@ -125,7 +125,19 @@ List list = new ArrayList();
         }finally {
             try {
                 rs.close();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+
                 ps.close();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+
                 conn.close();
             } catch (SQLException e) {
                 e.printStackTrace();

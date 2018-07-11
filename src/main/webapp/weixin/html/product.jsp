@@ -231,9 +231,9 @@
 
 
 <script type="text/javascript" src="/wweixin/weixin/js3/common.js"></script>
-<script type="text/javascript" src="/wweixin/weixin/js3/jquery.json.js"></script>
-<script type="text/javascript" src="/wweixin/weixin/js3/jquery.more.js"></script>
-<script type="text/javascript" src="/wweixin/weixin/js3/jquery.swiper.min.js"></script>
+<%--<script type="text/javascript" src="/wweixin/weixin/js3/jquery.json.js"></script>--%>
+<%--<script type="text/javascript" src="/wweixin/weixin/js3/jquery.more.js"></script>--%>
+<%--<script type="text/javascript" src="/wweixin/weixin/js3/jquery.swiper.min.js"></script>--%>
 
 
 

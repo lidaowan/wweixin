@@ -80,11 +80,19 @@ public class shouye extends HttpServlet {
         }finally {
             try {
                 rs.close();
+
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+
                 ps.close();
 
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+
         }
         return  null;
     }

@@ -31,7 +31,7 @@ public class shouye extends HttpServlet {
             session.setAttribute("javashipinList",list2);
 
 
-            List list3 = getGoodsDao(connection1,"dashujushipin");
+            List list3 = getGoodsDao(connection1,"jianlimuban");
             session.setAttribute("dashujushipinList",list3);
 
 

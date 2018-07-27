@@ -16,7 +16,7 @@
     <link href="/wweixin/weixin/css/mui/mui.min.css" rel="stylesheet" />
 
 <!-- 商城2 css和js引入 -->
-    <link href="/wweixin/weixin/css2/mui.min.css" rel="stylesheet" />
+    <%--<link href="/wweixin/weixin/css2/mui.min.css" rel="stylesheet" />--%>
     <link href="/wweixin/weixin/css2/style.css" rel="stylesheet" />
 
 
@@ -58,12 +58,12 @@
 
                                                             <span id="zan">${goodbean.dianzancishu}</span></span></h4>
             <h4 class="weui-media-box__title" style="color: #ff0000; font-weight: 600;">￥${goodbean.price}元&nbsp;&nbsp;<del style="font-size:3.5vw; color:#6d6d72;">${goodbean.zhiqianjiage}元</del></h4>
-            <h4 class="weui-media-box__title" style="color: #D02090; font-weight: 600;"><c:if test="${goodbean.openid!=null && goodbean.openid!=''}">百度网盘地址：<a href="tel:${goodbean.wangpandizhi}">${goodbean.wangpandizhi}</a></c:if></h4>
-            <h4 class="weui-media-box__title" style="color: #D02090; font-weight: 600;"><c:if test="${goodbean.openid!=null && goodbean.openid!=''}">网盘密码：<a href="${goodbean.wangpanmima}">${goodbean.wangpanmima}</a></c:if></h4>
+            <h4 class="weui-media-box__title" style="color: #D02090; font-weight: 600;"><c:if test="${goodbean.openid!=null && goodbean.openid!=''}">百度网盘地址：<a href="${goodbean.wangpandizhi}">${goodbean.wangpandizhi}</a></c:if></h4>
+            <h4 class="weui-media-box__title" style="color: #D02090; font-weight: 600;"><c:if test="${goodbean.openid!=null && goodbean.openid!=''}">网盘密码（轻点复制）：<a href="tel:${goodbean.wangpanmima}">${goodbean.wangpanmima}</a></c:if></h4>
 
 
-            <h4 class="weui-media-box__title" style="color: #D02090; font-weight: 600;"><c:if test="${goodbean.shifoumianfei=='Y'}">百度网盘地址：<a href="tel:${goodbean.wangpandizhi}">${goodbean.wangpandizhi}</a></c:if></h4>
-            <h4 class="weui-media-box__title" style="color: #D02090; font-weight: 600;"><c:if test="${goodbean.shifoumianfei=='Y' }">网盘密码：<a href="${goodbean.wangpanmima}">${goodbean.wangpanmima}</a></c:if></h4>
+            <h4 class="weui-media-box__title" style="color: #D02090; font-weight: 600;"><c:if test="${goodbean.shifoumianfei=='Y'}">百度网盘地址：<a href="${goodbean.wangpandizhi}">${goodbean.wangpandizhi}</a></c:if></h4>
+            <h4 class="weui-media-box__title" style="color: #D02090; font-weight: 600;"><c:if test="${goodbean.shifoumianfei=='Y' }">网盘密码（轻点复制）：<a href="tel:${goodbean.wangpanmima}">${goodbean.wangpanmima}</a></c:if></h4>
 
             <p class="weui-media-box__desc">${goodbean.describes}</p>
         </div>
@@ -77,33 +77,17 @@
     用户评论
 </div>
 <ul class="mui-table-view">
+<c:forEach items="${pingjia }" var="pjbean">
     <li class="mui-table-view-cell mui-media">
         <a href="javascript:;">
-            <img class="mui-media-object mui-pull-left userimg" src="/wweixin/weixinimages/shuijiao.jpg">
+            <%--<img class="mui-media-object mui-pull-left userimg" src="/wweixin/weixinimages/shuijiao.jpg">--%>
             <div class="mui-media-body">
-                幸福
-                <p class='mui-ellipsis'>这个视频真的特别棒！！！</p>
+                购买用户  ${pjbean.pingjiashijian}
+                <p class='mui-ellipsis'>${pjbean.neirong}</p>
             </div>
         </a>
     </li>
-    <li class="mui-table-view-cell mui-media">
-        <a href="javascript:;">
-            <img class="mui-media-object mui-pull-left userimg" src="/wweixin/weixinimages/shuijiao.jpg">
-            <div class="mui-media-body">
-                幸福
-                <p class='mui-ellipsis'>这个视频真的特别棒！！！</p>
-            </div>
-        </a>
-    </li>
-    <li class="mui-table-view-cell mui-media">
-        <a href="javascript:;">
-            <img class="mui-media-object mui-pull-left userimg" src="/wweixin/weixinimages/shuijiao.jpg">
-            <div class="mui-media-body">
-                幸福
-                <p class='mui-ellipsis'>这个视频真的特别棒！！！</p>
-            </div>
-        </a>
-    </li>
+</c:forEach>
 </ul>
 <p style="margin: 10px 15px 0;">
     用户须知：
@@ -112,7 +96,7 @@
     用户购买本站资料后仅供自己学习使用，不得在第三方平台进行传播
 </p>
 <br />
-<div style="height: 80px"></div>
+<div style="height: 60px"></div>
 <c:if test="${goodbean.shifoumianfei!='Y'}">
 <div class="filter-btn dis-box">
     <a type="button" class="btn-cart box-flex n-iphone5-top1 j-goods-attr j-show-div" onclick="yuzhifu(${goodbean.id})">立即购买</a>

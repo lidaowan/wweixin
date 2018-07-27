@@ -38,7 +38,7 @@ req.setAttribute("dingdanlist",list);
         PreparedStatement ps = null;
 
         ResultSet rs = null;
-       String sql = "SELECT g.price,g.gname,o.time,g.jianjie,g.id,g.image1,p.neirong,o.id   from (select id,user_openid,good_id,time,state,price,shifoushengxiao from shangcheng.orders where shifoushengxiao='Y' and user_openid=?) o LEFT JOIN\n" +
+       String sql = "SELECT g.price,g.gname,o.time,g.jianjie,g.id,g.image1,p.neirong,o.id,o.price   from (select id,user_openid,good_id,time,state,price,shifoushengxiao from shangcheng.orders where shifoushengxiao='Y' and user_openid=?) o LEFT JOIN\n" +
                "shangcheng.goods g on o.good_id=g.id LEFT JOIN (SELECT neirong,goodid,order_id from shangcheng.pingjia where openid=? ) p on p.order_id=o.id order by o.time desc";
     List list = new ArrayList();
         try {
@@ -48,7 +48,7 @@ req.setAttribute("dingdanlist",list);
               rs = ps.executeQuery();
              while (rs.next()){
                  dingdanBEAN db = new dingdanBEAN();
-                 db.setPrice(rs.getDouble(1));
+                 db.setPrice(rs.getDouble(9));
                  db.setMyname(rs.getString(2));
                  db.setGoumaishijian(rs.getString(3));
                  db.setJianjie(rs.getString(4));

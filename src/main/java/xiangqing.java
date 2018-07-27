@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet("/yanzheng/xiangqing")
 public class xiangqing extends HttpServlet {
@@ -21,10 +23,58 @@ public class xiangqing extends HttpServlet {
          openid = req.getParameter("openid");
          token = req.getParameter("token");
          goodbean gb = DaoGetGood();
+         List list = getPingjia();
+         req.getSession().setAttribute("pingjia",list);
          req.getSession().setAttribute("goodbean",gb);
          req.getRequestDispatcher("/weixin/html/xiangqing.jsp?openid="+openid+"&token="+token).forward(req,resp);
 
     }
+
+    private List getPingjia() {
+                Connection conn = C3p0pool.getConnection();
+        String sql = "select DISTINCT(openid),id,goodid,pingjiashijian,neirong,order_id from pingjia where goodid=? and shifouxianshi='Y'";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        List list = new ArrayList();
+        try {
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1,goodid);
+             rs = ps.executeQuery();
+             while (rs.next()){
+                 pingjiaBEAN pj = new pingjiaBEAN();
+                 pj.setId(rs.getInt(2));
+                 pj.setGood_id(rs.getInt(3));
+                 pj.setOpenid(rs.getString(1));
+                 pj.setPingjiashijian(rs.getDate(4).toString());
+                 pj.setNeirong(rs.getString(5));
+                 pj.setOrder_id(rs.getString(6));
+                 list.add(pj);
+             }
+return list;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                ps.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return null;
+    }
+
+
 
     private goodbean DaoGetGood() {
         goodbean gb = new goodbean();

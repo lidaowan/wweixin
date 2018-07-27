@@ -52,40 +52,40 @@
         <div class="mui-slider-group mui-slider-loop">
             <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
             <div class="mui-slider-item mui-slider-item-duplicate">
-                <a href="#">
-                    <img src="/wweixin/weixin/images/yuantiao.jpg">
-                    <p class="mui-slider-title">静静看这世界</p>
+                <a href="/wweixin/yanzheng/xiangqing?good_id=10005&openid=${ param["openid"] }">
+                    <img src="/wweixin/weixin/images/36.jpg">
+                    <p class="mui-slider-title">小马哥Java经典视频</p>
+                </a>
+            </div>
+            <div class="mui-slider-item">
+                <a href="/wweixin/yanzheng/xiangqing?good_id=10005&openid=${ param["openid"] }">
+                    <img src="/wweixin/weixin/images/33.jpg">
+                    <p class="mui-slider-title">海量简历模板套餐免费赠送</p>
                 </a>
             </div>
             <div class="mui-slider-item">
                 <a href="#">
-                    <img src="/wweixin/weixin/images/shuijiao.jpg">
-                    <p class="mui-slider-title">幸福就是可以一起睡觉</p>
+                    <img src="/wweixin/weixin/images/29.jpg">
+                    <p class="mui-slider-title">真实简历，全网独家</p>
                 </a>
             </div>
             <div class="mui-slider-item">
                 <a href="#">
-                    <img src="/wweixin/weixin/images/muwu.jpg">
-                    <p class="mui-slider-title">想要一间这样的木屋，静静的喝咖啡</p>
+                    <img src="/wweixin/weixin/images/31.jpg">
+                    <p class="mui-slider-title">海量简历模板套餐2免费赠送</p>
                 </a>
             </div>
             <div class="mui-slider-item">
                 <a href="#">
-                    <img src="/wweixin/weixin/images/cbd.jpg">
-                    <p class="mui-slider-title">Color of SIP CBD</p>
-                </a>
-            </div>
-            <div class="mui-slider-item">
-                <a href="#">
-                    <img src="/wweixin/weixin/images/yuantiao.jpg">
-                    <p class="mui-slider-title">静静看这世界</p>
+                    <img src="/wweixin/weixin/images/36.jpg">
+                    <p class="mui-slider-title">小马哥Java经典视频</p>
                 </a>
             </div>
             <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
             <div class="mui-slider-item mui-slider-item-duplicate">
                 <a href="#">
-                    <img src="/wweixin/weixin/images/shuijiao.jpg">
-                    <p class="mui-slider-title">幸福就是可以一起睡觉</p>
+                    <img src="/wweixin/weixin/images/33.jpg">
+                    <p class="mui-slider-title">海量简历模板免费赠送</p>
                 </a>
             </div>
         </div>
@@ -113,7 +113,7 @@
 </div>
 
 <div class="mui-content" style="background-color:#fff">
-    <h5 style="background-color:#efeff4">真实简历<a href="shipinliebiao.html" style="float:right; margin-right:10px;">更多</a></h5>
+    <h5 style="background-color:#efeff4">真实简历<a href="/wweixin/yanzheng/shangpinliebiao?gclass=jianli&openid=${ param["openid"] }" style="float:right; margin-right:10px;">更多</a></h5>
     <ul class="mui-table-view mui-grid-view">
 <c:forEach items="${jianliList }" var="goodbean">
         <li class="mui-table-view-cell mui-media mui-col-xs-6">
@@ -130,7 +130,7 @@
 </div>
 
 <div class="mui-content" style="background-color:#fff">
-    <h5 style="background-color:#efeff4">大数据视频<a href="/wweixin/yanzheng/shangpinliebiao?gclass=dashujushipin&openid=${ param["openid"] }" style="float:right; margin-right:10px;">更多</a></h5>
+    <h5 style="background-color:#efeff4">免费简历模板<a href="/wweixin/yanzheng/shangpinliebiao?gclass=jianlimuban&openid=${ param["openid"] }" style="float:right; margin-right:10px;">更多</a></h5>
     <ul class="mui-table-view mui-grid-view">
 <c:forEach items="${dashujushipinList }" var="goodbean">
         <li class="mui-table-view-cell mui-media mui-col-xs-6">
@@ -140,6 +140,21 @@
             </a>
         </li>
 </c:forEach>
+    </ul>
+</div>
+
+
+<div class="mui-content" style="background-color:#fff">
+    <h5 style="background-color:#efeff4">Java视频<a href="/wweixin/yanzheng/shangpinliebiao?gclass=javashipin&openid=${ param["openid"] }" style="float:right; margin-right:10px;">更多</a></h5>
+    <ul class="mui-table-view mui-grid-view">
+        <c:forEach items="${javashipinList }" var="goodbean">
+            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+                <a href="/wweixin/yanzheng/xiangqing?good_id=${goodbean.id}&openid=${ param["openid"] }">
+                    <img class="mui-media-object" src="/wweixin/weixin/images/${goodbean.image1}">
+                    <div class="mui-media-body">${goodbean.gname}</div>
+                </a>
+            </li>
+        </c:forEach>
     </ul>
 </div>
 

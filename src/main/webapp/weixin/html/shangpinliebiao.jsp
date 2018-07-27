@@ -21,7 +21,7 @@
     <title>视频列表</title>
 </head>
 <body>
-<div class="weui-search-bar" id="searchBar" onclick="location.href = '搜索页.html'">
+<div class="weui-search-bar" id="searchBar" onclick="location.href = '/wweixin/yanzheng/product?openid=${ param["openid"] }'">
     <form class="weui-search-bar__form" style="height: 30px;">
         <div class="weui-search-bar__box">
             <i class="weui-icon-search"></i>

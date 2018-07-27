@@ -40,7 +40,7 @@ yuzhifubean yb = BeanDaoAndOther();
 String md5 = qianming(yb);
 String zxml = txml+ "   <sign>"+md5+"</sign>\n" +
         "</xml>";
-System.out.println("发送的XML是："+zxml);
+//System.out.println("发送的XML是："+zxml);
 zhifufanhuiBEAN zf = sendANDget(zxml);
 if(zf.prepay_id!=null && !"".equals(zf.prepay_id)){
 
@@ -108,7 +108,7 @@ if(zf.prepay_id!=null && !"".equals(zf.prepay_id)){
            // String getResponse = getMethod.getResponseBodyAsString();
             HttpsPost hp = new HttpsPost();
           String  getResponse  = hp.post(zxml,"https://api.mch.weixin.qq.com/pay/unifiedorder");
-          System.out.println(getResponse);
+          //System.out.println(getResponse);
             XStream xstream = new XStream();
             XStream.setupDefaultSecurity(xstream);
             xstream.allowTypes(new Class[]{zhifufanhuiBEAN.class});
@@ -127,7 +127,7 @@ return null;
         String Out_trade_no = UUID.randomUUID().toString().substring(0,32);
        Connection conn = C3p0pool.getConnection();
        String sql = "select gname,id,price from goods where id=?";
-       String sql2 = "insert into orders (id,user_openid,good_id,shifoushengxiao) values(?,?,?,?)";
+       String sql2 = "insert into orders (id,user_openid,good_id,shifoushengxiao,price) values(?,?,?,?,?)";
         PreparedStatement ps = null;
         PreparedStatement ps2 = null;
         ResultSet rs = null;
@@ -144,7 +144,9 @@ return null;
              ps2.setString(2,openid);
              ps2.setInt(3,shangpinid);
              ps2.setString(4,"N");
-             ps2.execute();
+            ps2.setDouble(5,rs.getDouble(3));
+
+            ps2.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {

@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="description" content="">
     <meta name="keywords" content="0">
-    <title>微信商城</title>
+    <title>φ(≧ω≦*)♪</title>
     <link rel="stylesheet" href="/wweixin/weixin/css3/bootstrap.min.css">
     <link rel="stylesheet" href="/wweixin/weixin/css3/swiper.min.css">
     <link rel="stylesheet" href="/wweixin/weixin/css3/font-awesome.min.css">
@@ -138,75 +138,24 @@
                     </p>
                     <ul class="hot-search a-text-more">
                         <li class="w-3">
-                            <a href="/app/product/index?name=零食" onclick="searchClose()" style="border:1px solid #efefef;border-radius:4px;"><span>零食</span></a>
+                            <a  onclick="btn1('简历')" style="border:1px solid #efefef;border-radius:4px;"><span>简历</span></a>
                         </li>
                         <li class="w-3">
-                            <a href="/app/product/index?name=羊排" onclick="searchClose()" style="border:1px solid #efefef;border-radius:4px;"><span>羊排</span></a>
+                            <a  onclick="btn1('大数据')" style="border:1px solid #efefef;border-radius:4px;"><span>大数据</span></a>
                         </li>
-                        <li class="w-3">
-                            <a href="/app/product/index?name=芒果" onclick="searchClose()" style="border:1px solid #efefef;border-radius:4px;"><span>芒果</span></a>
-                        </li>
-                        <li class="w-3">
-                            <a href="/app/product/index?name=一动网" onclick="searchClose()" style="border:1px solid #efefef;border-radius:4px;"><span>一动网</span></a>
-                        </li>
+                        <%--<li class="w-3">--%>
+                            <%--<a href="/app/product/index?name=" onclick="searchClose()" style="border:1px solid #efefef;border-radius:4px;"><span>芒果</span></a>--%>
+                        <%--</li>--%>
+                        <%--<li class="w-3">--%>
+                            <%--<a href="/app/product/index?name=一动网" onclick="searchClose()" style="border:1px solid #efefef;border-radius:4px;"><span>一动网</span></a>--%>
+                        <%--</li>--%>
                     </ul>
                     <p class="hos-search">
                         <label class="fl">最近搜索</label>
                         <!--<span class="fr" onclick="javascript:clearHistroy();"><i-->
                         <!--class="iconfont icon-xiao10 is-xiao10 jian-top fr"></i></span>-->
                     </p>
-                    <ul class="hot-search a-text-more a-text-one" id="search_histroy">
-                        <li>
-                            <a href="/app/product/index?name=羊排" onclick="searchClose()">
-                                <span>羊排</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/app/product/index?name=零食" onclick="searchClose()">
-                                <span>零食</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/app/product/index?name=85" onclick="searchClose()">
-                                <span>85</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/app/product/index?name=芒果" onclick="searchClose()">
-                                <span>芒果</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/app/product/index?name=零食" onclick="searchClose()">
-                                <span>零食</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/app/product/index?name=零食" onclick="searchClose()">
-                                <span>零食</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/app/product/index?name=零食" onclick="searchClose()">
-                                <span>零食</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/app/product/index?name=酸" onclick="searchClose()">
-                                <span>酸</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/app/product/index?name=零食" onclick="searchClose()">
-                                <span>零食</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/app/product/index?name=芒果" onclick="searchClose()">
-                                <span>芒果</span>
-                            </a>
-                        </li>
-                    </ul>
+
                 </div>
             </div>
             <div class="swiper-scrollbar" style="opacity: 0; transition-duration: 400ms;">
@@ -244,6 +193,18 @@
        var nr = document.getElementById('newinput').value;
 
 var url = '/wweixin/yanzheng/product?openid=${ param["openid"] }&name='+nr+'&sort=';
+        $.pjax({
+            url: url,
+            container: '#pjax-container'
+        })
+
+    }
+
+    function btn1(nr) {
+        searchClose();
+
+
+        var url = '/wweixin/yanzheng/product?openid=${ param["openid"] }&name='+nr+'&sort=';
         $.pjax({
             url: url,
             container: '#pjax-container'

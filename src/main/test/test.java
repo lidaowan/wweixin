@@ -17,7 +17,7 @@ String s = "<xml>\n" +
         //将别名与xml名字相对应
         xstream.alias("xml", zhifufanhuiBEAN.class);
         zhifufanhuiBEAN zf = (zhifufanhuiBEAN) xstream.fromXML(s);
-        System.out.println(zf);
+
     }
 }
     // WeiXinAccessTokenUtil.getWeiXinAccessToken(CONFIG.APPID,CONFIG.SECRRT);

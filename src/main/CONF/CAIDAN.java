@@ -10,7 +10,7 @@ public class CAIDAN {
             "     {    \n" +
             "          \"type\":\"view\",\n" +
             "          \"name\":\"轻松一下\",\n" +
-            "          \"url\":\"http://lidaowan.com/wweixin/mao/index.html\"\n" +
+            "          \"url\":\"http://lidaowan.com/wweixin/jiangshi/index.html\"\n" +
             "      },\n" +"]" +
             " }";
 

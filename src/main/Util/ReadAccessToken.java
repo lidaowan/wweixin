@@ -47,7 +47,7 @@ return accesstoken;
           int bytesRead  =  channel.read(byteBuffer);
           //  System.out.println("aaaa");
             while (bytesRead != -1) {
-                System.out.println("Read " + bytesRead);
+                //System.out.println("Read " + bytesRead);
                 byteBuffer.flip();
                 while (byteBuffer.hasRemaining())
                 {

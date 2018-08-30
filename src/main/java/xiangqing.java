@@ -32,7 +32,7 @@ public class xiangqing extends HttpServlet {
 
     private List getPingjia() {
                 Connection conn = C3p0pool.getConnection();
-        String sql = "select DISTINCT(openid),id,goodid,pingjiashijian,neirong,order_id from pingjia where goodid=? and shifouxianshi='Y'";
+        String sql = "select DISTINCT(openid),id,goodid,pingjiashijian,neirong,order_id,username from pingjia where goodid=? and shifouxianshi='Y' ORDER BY pingjiashijian desc";
         PreparedStatement ps = null;
         ResultSet rs = null;
         List list = new ArrayList();
@@ -48,6 +48,7 @@ public class xiangqing extends HttpServlet {
                  pj.setPingjiashijian(rs.getDate(4).toString());
                  pj.setNeirong(rs.getString(5));
                  pj.setOrder_id(rs.getString(6));
+                 pj.setUsername(rs.getString(7));
                  list.add(pj);
              }
 return list;

@@ -957,7 +957,7 @@ label.admin-text {
 /*按钮色调*/
 
 .btn-submit, .btn-submit1, .btn-submit2, .btn-disab, .btn-cart, .btn-reset, .btn-default, .btn-alipay, .btn-wechat {
-    font-size: 1.7rem;
+    font-size: 0.6rem;
     color: #fff;
     border: 0;
     text-align: center;
@@ -2893,7 +2893,7 @@ a.a-sequence .iconfont.icon-icon-square:before {
     right: 0;
     bottom: 0;
     box-sizing: border-box;
-    padding: .8rem;
+    padding: .2rem;
     z-index: 6;
     background: #fafafc;
     border-top: 1px solid #efefef;
@@ -2949,6 +2949,8 @@ a.a-sequence .iconfont.icon-icon-square:before {
 .filter-btn a.box-flex:last-of-type {
     margin-right: 0;
     margin-left: 0;
+    padding-top:8;
+    padding-bottom:8;
 }
 
 /*筛选 － 三级菜单*/

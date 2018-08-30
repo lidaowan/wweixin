@@ -51,7 +51,7 @@ public class dingdanBEAN {
     }
 
     public String getGoumaishijian() {
-        return goumaishijian;
+        return goumaishijian.replace(".0","");
     }
 
     public void setGoumaishijian(String goumaishijian) {

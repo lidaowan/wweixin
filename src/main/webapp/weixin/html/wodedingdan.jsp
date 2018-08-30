@@ -5,112 +5,110 @@
 
 <%@ page isELIgnored="false"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <meta charset="UTF-8">
+    <title>我的订单</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <link href="/wweixin/weixin/css/style.css" rel="stylesheet" type="text/css"/>
+
     <link href="/wweixin/weixin/css/MyCenter.css" rel="stylesheet" />
     <link href="/wweixin/weixin/css/WeUI/weui.min.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="/wweixin/weixin/css2/app.css">
 
-    <title>我的订单</title>
-    <style>
-        body {
-            font-family: 'Microsoft YaHei';
-        }
+    <script type="text/javascript" src="/wweixin/weixin/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/wweixin/weixin/js/tab.js"></script>
 
-        p {
-            font-size: 4.5vw;
-        }
-    </style>
 </head>
 <body>
-<div class="top_div">
-    <img src="/wweixin/weixin/images/bac.jpg" class="top_img">
 
-</div><br />
-<div class="page__bd" style="height: 100%;">
-    <div class="weui-tab">
-        <div class="weui-navbar">
-            <div class="weui-navbar__item weui-bar__item_on">
-                购买记录
-            </div>
 
-        </div>
 
-        <div class="weui-tab__panel">
+<section class="aui-flexView">
 
-                <br />
+    <section class="aui-scrollView">
+        <div class="aui-tab" data-ydui-tab>
+
+
+            <div class="top_div">
+                <img src="/wweixin/weixin/images/bac.jpg" class="top_img">
+
+            </div><br />
+            <div class="page__bd" style="height: 100%;">
+                <div class="weui-tab">
+                    <div class="weui-navbar">
+                        <div class="weui-navbar__item weui-bar__item_on">
+                            购买记录
+                        </div>
+
+                    </div>
+
+                    <div class="weui-tab__panel">
+
+                        <br />
+
 <c:forEach items="${dingdanlist }" var="dingdanbean">
-                <div class="weui-form-preview">
-                    <div class="weui-form-preview__hd">
-                        <div class="weui-form-preview__item">
-                            <label class="weui-form-preview__label">订单金额</label>
-                            <em class="weui-form-preview__value">¥${dingdanbean.price}</em>
+            <div class="divHeight"></div>
+            <div class="tab-panel">
+                <div class="tab-panel-item tab-active">
+                    <div class="tab-item">
+
+                        <div class="aui-mail-product">
+                            <a href="javascript:;" class="aui-mail-product-item">
+                                <div class="aui-mail-product-item-hd">
+                                    <img src="/wweixin/weixin/images/${dingdanbean.image1}" alt="">
+                                </div>
+                                <div class="aui-mail-product-item-bd">
+                                    <p>${dingdanbean.myname}</p>
+                                </div>
+                            </a>
                         </div>
-                    </div>
-                    <div class="weui-form-preview__bd">
-                        <div class="weui-form-preview__item">
-                            <label class="weui-form-preview__label">商品名称</label>
-                            <span class="weui-form-preview__value">${dingdanbean.myname}</span>
-                        </div>
-                        <div class="weui-form-preview__item">
-                            <label class="weui-form-preview__label">购买时间</label>
-                            <span class="weui-form-preview__value">${dingdanbean.goumaishijian}</span>
-                        </div>
-                        <div class="weui-form-preview__item">
-                            <label class="weui-form-preview__label">商品简介</label>
-                            <span class="weui-form-preview__value">${dingdanbean.jianjie}</span>
-                        </div>
-                    </div>
-                    <c:if test="${dingdanbean.neirong==null || dingdanbean.neirong==''}">
-                        <div class="weui-form-preview__ft">
-                            <a class="weui-form-preview__btn weui-form-preview__btn_default" href="/wweixin/weixin/html/tijiaopinglun.jsp?good_id=${dingdanbean.goodid}&openid=${ param["openid"] }&image1=${dingdanbean.image1}&name=${dingdanbean.myname}&order_id=${dingdanbean.order_id}">评价</a>
-                            <a class="weui-form-preview__btn weui-form-preview__btn_primary" href="xiangqing?good_id=${dingdanbean.goodid}&openid=${ param["openid"] }">立即查看</a>
+                        <a href="javascript:;" class="aui-mail-payment">
+                            <p>
+
+                                购买时间 <em>${dingdanbean.goumaishijian}</em> &nbsp;&nbsp;&nbsp; 实付款: ￥<i>${dingdanbean.price}</i>
+                            </p>
+                        </a>
+<c:if test="${dingdanbean.neirong==null || dingdanbean.neirong==''}">
+                        <div class="aui-mail-button">
+                            <a  href="xiangqing?good_id=${dingdanbean.goodid}&openid=${ param["openid"] }">立即查看</a>
+                            <a href="/wweixin/weixin/html/tijiaopinglun.jsp?good_id=${dingdanbean.goodid}&openid=${ param["openid"] }&image1=${dingdanbean.image1}&name=${dingdanbean.myname}&order_id=${dingdanbean.order_id}" class="aui-df-color">评价</a>
 
                         </div>
-                    </c:if>
+</c:if>
 
+<c:if test="${dingdanbean.neirong!=null && dingdanbean.neirong!=''}">
 
-                    <c:if test="${dingdanbean.neirong!=null && dingdanbean.neirong!=''}">
-                        <div class="weui-form-preview__ft">
-                            <a class="weui-form-preview__btn weui-form-preview__btn_default" href="/wweixin/yanzheng/chakanpingjia?good_id=${dingdanbean.goodid}&openid=${ param["openid"] }&image1=${dingdanbean.image1}&name=${dingdanbean.myname}&order_id=${dingdanbean.order_id}">已评价/查看评价</a>
-                            <a class="weui-form-preview__btn weui-form-preview__btn_primary" href="xiangqing?good_id=${dingdanbean.goodid}&openid=${ param["openid"] }">立即查看</a>
+    <div class="aui-mail-button">
+        <a  href="xiangqing?good_id=${dingdanbean.goodid}&openid=${ param["openid"] }">立即查看</a>
+        <a href="/wweixin/yanzheng/chakanpingjia?good_id=${dingdanbean.goodid}&openid=${ param["openid"] }&image1=${dingdanbean.image1}&name=${dingdanbean.myname}&order_id=${dingdanbean.order_id}" class="aui-df-color">查看评价</a>
 
-                        </div>
-                    </c:if>
-                </div>
-
-    <br />
-</c:forEach>
-        </div>
     </div>
-</div>
-<script src="../js/jquery-1.9.1.min.js"></script>
-<script>
-    $(function () {
-        $('.weui-navbar__item').on('click', function () {
-            $(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
-            if ($('#o1').is(":hidden")) {
-                $('#o1').show();
-                $('#o2').hide();
-            } else {
-                $('#o1').hide();
-                $('#o2').show();
-            }
-        });
-    });
-</script>
-<div style="height: 60px"></div>
+</c:if>
+                    </div>
+                    </c:forEach>
+                    <div style="height: 60px"></div>
+
+            </div>
+        </div>
+    </section>
+
+</section>
+
 <footer class="footer-nav dis-box">
-<a id="link_index" href="/wweixin/yanzheng/shouye?openid=${ param["openid"] }" class="box-flex nav-list">
-<i class="nav-box i-home"></i><span>首页</span>
-</a>
+    <a id="link_index" href="/wweixin/yanzheng/shouye?openid=${ param["openid"] }" class="box-flex nav-list">
+        <i class="nav-box i-home"></i><span>首页</span>
+    </a>
 
 
-<a id="link_user" href="/wweixin/yanzheng/gerenzhongxin?openid=${ param["openid"] }" class="box-flex nav-list" >
-<i class="nav-box i-user"></i><span>我的</span>
-</a>
+    <a id="link_user" href="/wweixin/yanzheng/gerenzhongxin?openid=${ param["openid"] }" class="box-flex nav-list" >
+        <i class="nav-box i-user"></i><span>我的</span>
+    </a>
 </footer>
 </body>
+
 </html>

@@ -16,11 +16,12 @@ public class pingjia extends HttpServlet {
     int good_id;
     String pingjianeirong = null;
     String order_id = null;
-
+String username = null;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         openid = req.getParameter("openid");
+        username = getYonghuming.get(openid);
         good_id = Integer.parseInt(req.getParameter("good_id"));
         pingjianeirong = req.getParameter("pingjianeirong");
         order_id = req.getParameter("order_id");
@@ -76,7 +77,7 @@ public class pingjia extends HttpServlet {
 
     private void xierushujukuDao() {
         Connection conn = C3p0pool.getConnection();
-        String sql = "insert into pingjia (goodid,openid,neirong,shifouxianshi,order_id) values (?,?,?,?,?)";
+        String sql = "insert into pingjia (goodid,openid,neirong,shifouxianshi,order_id,username) values (?,?,?,?,?,?)";
         PreparedStatement ps = null;
         try {
             ps = conn.prepareStatement(sql);
@@ -85,6 +86,7 @@ public class pingjia extends HttpServlet {
             ps.setString(3,pingjianeirong);
             ps.setString(4,"N");
             ps.setString(5,order_id);
+            ps.setString(6,username);
             ps.execute();
         } catch (SQLException e) {
             e.printStackTrace();
